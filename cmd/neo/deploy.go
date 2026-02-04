@@ -3,11 +3,11 @@ package main
 import (
 	"strings"
 
-	"github.com/neopilot-ai/neo/v3/cmd/neo/cli"
-	"github.com/neopilot-ai/neo/v3/cmd/neo/mosaic/ui"
-	"github.com/neopilot-ai/neo/v3/pkg/bus"
-	"github.com/neopilot-ai/neo/v3/pkg/project"
-	"github.com/neopilot-ai/neo/v3/pkg/server"
+	"github.com/neopilot-ai/neo/cmd/neo/cli"
+	"github.com/neopilot-ai/neo/cmd/neo/mosaic/ui"
+	"github.com/neopilot-ai/neo/pkg/bus"
+	"github.com/neopilot-ai/neo/pkg/project"
+	"github.com/neopilot-ai/neo/pkg/server"
 	"golang.org/x/sync/errgroup"
 )
 

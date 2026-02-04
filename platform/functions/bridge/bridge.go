@@ -14,8 +14,8 @@ import (
 	"time"
 
 	"github.com/aws/aws-sdk-go-v2/config"
-	"github.com/neopilot-ai/neo/v3/cmd/neo/mosaic/aws/appsync"
-	"github.com/neopilot-ai/neo/v3/cmd/neo/mosaic/aws/bridge"
+	"github.com/neopilot-ai/neo/cmd/neo/mosaic/aws/appsync"
+	"github.com/neopilot-ai/neo/cmd/neo/mosaic/aws/bridge"
 )
 
 var version = "0.0.1"

@@ -14,9 +14,9 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/neopilot-ai/neo/v3/pkg/id"
-	"github.com/neopilot-ai/neo/v3/pkg/process"
-	"github.com/neopilot-ai/neo/v3/pkg/task"
+	"github.com/neopilot-ai/neo/pkg/id"
+	"github.com/neopilot-ai/neo/pkg/process"
+	"github.com/neopilot-ai/neo/pkg/task"
 )
 
 func NeedsPulumi() bool {

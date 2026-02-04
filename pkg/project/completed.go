@@ -6,10 +6,10 @@ import (
 	"strings"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/common/apitype"
-	"github.com/neopilot-ai/neo/v3/pkg/id"
-	"github.com/neopilot-ai/neo/v3/pkg/project/common"
-	"github.com/neopilot-ai/neo/v3/pkg/project/provider"
-	"github.com/neopilot-ai/neo/v3/pkg/state"
+	"github.com/neopilot-ai/neo/pkg/id"
+	"github.com/neopilot-ai/neo/pkg/project/common"
+	"github.com/neopilot-ai/neo/pkg/project/provider"
+	"github.com/neopilot-ai/neo/pkg/state"
 )
 
 func (p *Project) GetCompleted(ctx context.Context) (*CompleteEvent, error) {

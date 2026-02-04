@@ -7,7 +7,7 @@ import (
 
 	"github.com/xjasonlyu/tun2socks/v2/engine"
 
-	"github.com/neopilot-ai/neo/v3/pkg/process"
+	"github.com/neopilot-ai/neo/pkg/process"
 )
 
 // Platform-specific interface

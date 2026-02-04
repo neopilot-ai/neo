@@ -7,13 +7,13 @@ import (
 	"strings"
 	"time"
 
-	"github.com/neopilot-ai/neo/v3/cmd/neo/cli"
-	"github.com/neopilot-ai/neo/v3/cmd/neo/mosaic/ui"
-	"github.com/neopilot-ai/neo/v3/internal/util"
-	"github.com/neopilot-ai/neo/v3/pkg/id"
-	"github.com/neopilot-ai/neo/v3/pkg/process"
-	"github.com/neopilot-ai/neo/v3/pkg/project/provider"
-	"github.com/neopilot-ai/neo/v3/pkg/state"
+	"github.com/neopilot-ai/neo/cmd/neo/cli"
+	"github.com/neopilot-ai/neo/cmd/neo/mosaic/ui"
+	"github.com/neopilot-ai/neo/internal/util"
+	"github.com/neopilot-ai/neo/pkg/id"
+	"github.com/neopilot-ai/neo/pkg/process"
+	"github.com/neopilot-ai/neo/pkg/project/provider"
+	"github.com/neopilot-ai/neo/pkg/state"
 )
 
 var CmdState = &cli.Command{

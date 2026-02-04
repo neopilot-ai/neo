@@ -12,9 +12,9 @@ import (
 	"os"
 	"time"
 
-	"github.com/neopilot-ai/neo/v3/internal/util"
-	"github.com/neopilot-ai/neo/v3/pkg/flag"
-	"github.com/neopilot-ai/neo/v3/pkg/id"
+	"github.com/neopilot-ai/neo/internal/util"
+	"github.com/neopilot-ai/neo/pkg/flag"
+	"github.com/neopilot-ai/neo/pkg/id"
 	"golang.org/x/exp/slog"
 )
 

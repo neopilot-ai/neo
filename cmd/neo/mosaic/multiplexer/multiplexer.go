@@ -12,8 +12,8 @@ import (
 
 	"github.com/gdamore/tcell/v2"
 	"github.com/gdamore/tcell/v2/views"
-	tcellterm "github.com/neopilot-ai/neo/v3/cmd/neo/mosaic/multiplexer/tcell-term"
-	"github.com/neopilot-ai/neo/v3/pkg/process"
+	tcellterm "github.com/neopilot-ai/neo/cmd/neo/mosaic/multiplexer/tcell-term"
+	"github.com/neopilot-ai/neo/pkg/process"
 )
 
 var PAD_HEIGHT = 0

@@ -15,12 +15,12 @@ import (
 	"time"
 
 	"github.com/aws/aws-sdk-go-v2/aws"
-	"github.com/neopilot-ai/neo/v3/cmd/neo/mosaic/aws/bridge"
-	"github.com/neopilot-ai/neo/v3/cmd/neo/mosaic/watcher"
-	"github.com/neopilot-ai/neo/v3/pkg/bus"
-	"github.com/neopilot-ai/neo/v3/pkg/project"
-	"github.com/neopilot-ai/neo/v3/pkg/runtime"
-	"github.com/neopilot-ai/neo/v3/pkg/server"
+	"github.com/neopilot-ai/neo/cmd/neo/mosaic/aws/bridge"
+	"github.com/neopilot-ai/neo/cmd/neo/mosaic/watcher"
+	"github.com/neopilot-ai/neo/pkg/bus"
+	"github.com/neopilot-ai/neo/pkg/project"
+	"github.com/neopilot-ai/neo/pkg/runtime"
+	"github.com/neopilot-ai/neo/pkg/server"
 )
 
 type FunctionInvokedEvent struct {

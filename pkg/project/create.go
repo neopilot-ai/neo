@@ -13,9 +13,9 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/neopilot-ai/neo/v3/internal/util"
-	"github.com/neopilot-ai/neo/v3/pkg/npm"
-	"github.com/neopilot-ai/neo/v3/platform"
+	"github.com/neopilot-ai/neo/internal/util"
+	"github.com/neopilot-ai/neo/pkg/npm"
+	"github.com/neopilot-ai/neo/platform"
 	"github.com/tailscale/hujson"
 )
 

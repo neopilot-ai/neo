@@ -8,7 +8,7 @@ import (
 
 	awssdk "github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/service/sts"
-	"github.com/neopilot-ai/neo/v3/pkg/project/provider"
+	"github.com/neopilot-ai/neo/pkg/project/provider"
 )
 
 func (p *Project) EnvFor(ctx context.Context, complete *CompleteEvent, name string) (map[string]string, error) {

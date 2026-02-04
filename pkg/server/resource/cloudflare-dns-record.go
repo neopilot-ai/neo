@@ -9,7 +9,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/neopilot-ai/neo/v3/pkg/project"
+	"github.com/neopilot-ai/neo/pkg/project"
 )
 
 // Base resource for Cloudflare providers

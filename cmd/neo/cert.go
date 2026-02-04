@@ -5,9 +5,9 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/neopilot-ai/neo/v3/cmd/neo/cli"
-	"github.com/neopilot-ai/neo/v3/pkg/global"
-	"github.com/neopilot-ai/neo/v3/pkg/process"
+	"github.com/neopilot-ai/neo/cmd/neo/cli"
+	"github.com/neopilot-ai/neo/pkg/global"
+	"github.com/neopilot-ai/neo/pkg/process"
 )
 
 var CmdCert = &cli.Command{

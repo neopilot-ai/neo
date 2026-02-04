@@ -14,8 +14,8 @@ import (
 	"github.com/charmbracelet/huh"
 	"github.com/fatih/color"
 	"github.com/joho/godotenv"
-	"github.com/neopilot-ai/neo/v3/internal/util"
-	"github.com/neopilot-ai/neo/v3/pkg/project"
+	"github.com/neopilot-ai/neo/internal/util"
+	"github.com/neopilot-ai/neo/pkg/project"
 )
 
 type Cli struct {

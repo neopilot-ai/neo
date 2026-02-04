@@ -14,7 +14,7 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/s3"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/google/uuid"
-	"github.com/neopilot-ai/neo/v3/sdk/golang/resource"
+	"github.com/neopilot-ai/neo/sdk/golang/resource"
 )
 
 type App struct {

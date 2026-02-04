@@ -14,12 +14,12 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/neopilot-ai/neo/v3/pkg/global"
-	"github.com/neopilot-ai/neo/v3/pkg/project"
-	"github.com/neopilot-ai/neo/v3/pkg/server/aws"
-	"github.com/neopilot-ai/neo/v3/pkg/server/resource"
-	"github.com/neopilot-ai/neo/v3/pkg/server/runtime"
-	"github.com/neopilot-ai/neo/v3/pkg/server/scrap"
+	"github.com/neopilot-ai/neo/pkg/global"
+	"github.com/neopilot-ai/neo/pkg/project"
+	"github.com/neopilot-ai/neo/pkg/server/aws"
+	"github.com/neopilot-ai/neo/pkg/server/resource"
+	"github.com/neopilot-ai/neo/pkg/server/runtime"
+	"github.com/neopilot-ai/neo/pkg/server/scrap"
 )
 
 type Server struct {

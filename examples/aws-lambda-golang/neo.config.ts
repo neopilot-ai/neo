@@ -33,7 +33,7 @@
  *
  * ```go title="src/main.go" {2}
  * import (
- *   "github.com/neopilot-ai/neo/v3/sdk/golang/resource"
+ *   "github.com/neopilot-ai/neo/sdk/golang/resource"
  * )
  * ```
  *

@@ -5,13 +5,13 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/neopilot-ai/neo/v3/cmd/neo/mosaic/aws"
-	"github.com/neopilot-ai/neo/v3/cmd/neo/mosaic/aws/appsync"
-	"github.com/neopilot-ai/neo/v3/internal/util"
-	"github.com/neopilot-ai/neo/v3/pkg/js"
-	"github.com/neopilot-ai/neo/v3/pkg/project"
-	"github.com/neopilot-ai/neo/v3/pkg/project/provider"
-	"github.com/neopilot-ai/neo/v3/pkg/server"
+	"github.com/neopilot-ai/neo/cmd/neo/mosaic/aws"
+	"github.com/neopilot-ai/neo/cmd/neo/mosaic/aws/appsync"
+	"github.com/neopilot-ai/neo/internal/util"
+	"github.com/neopilot-ai/neo/pkg/js"
+	"github.com/neopilot-ai/neo/pkg/project"
+	"github.com/neopilot-ai/neo/pkg/project/provider"
+	"github.com/neopilot-ai/neo/pkg/server"
 )
 
 type ErrorTransformer = func(err error) (bool, error)

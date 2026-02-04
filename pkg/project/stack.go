@@ -5,8 +5,8 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/common/apitype"
-	"github.com/neopilot-ai/neo/v3/pkg/project/common"
-	"github.com/neopilot-ai/neo/v3/pkg/project/provider"
+	"github.com/neopilot-ai/neo/pkg/project/common"
+	"github.com/neopilot-ai/neo/pkg/project/provider"
 )
 
 type BuildFailedEvent struct {

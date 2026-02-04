@@ -6,11 +6,11 @@ import (
 	"strings"
 
 	"github.com/fatih/color"
-	"github.com/neopilot-ai/neo/v3/cmd/neo/cli"
-	"github.com/neopilot-ai/neo/v3/cmd/neo/mosaic/ui"
-	"github.com/neopilot-ai/neo/v3/pkg/global"
-	"github.com/neopilot-ai/neo/v3/pkg/npm"
-	"github.com/neopilot-ai/neo/v3/pkg/process"
+	"github.com/neopilot-ai/neo/cmd/neo/cli"
+	"github.com/neopilot-ai/neo/cmd/neo/mosaic/ui"
+	"github.com/neopilot-ai/neo/pkg/global"
+	"github.com/neopilot-ai/neo/pkg/npm"
+	"github.com/neopilot-ai/neo/pkg/process"
 )
 
 func CmdUpgrade(c *cli.Cli) error {

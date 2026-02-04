@@ -14,10 +14,10 @@ import (
 
 	"github.com/evanw/esbuild/pkg/api"
 	esbuild "github.com/evanw/esbuild/pkg/api"
-	"github.com/neopilot-ai/neo/v3/pkg/flag"
-	"github.com/neopilot-ai/neo/v3/pkg/process"
-	"github.com/neopilot-ai/neo/v3/pkg/project/path"
-	"github.com/neopilot-ai/neo/v3/pkg/runtime"
+	"github.com/neopilot-ai/neo/pkg/flag"
+	"github.com/neopilot-ai/neo/pkg/process"
+	"github.com/neopilot-ai/neo/pkg/project/path"
+	"github.com/neopilot-ai/neo/pkg/runtime"
 	"golang.org/x/sync/semaphore"
 )
 

@@ -12,7 +12,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/neopilot-ai/neo/v3/pkg/project/path"
+	"github.com/neopilot-ai/neo/pkg/project/path"
 )
 
 type Runtime interface {

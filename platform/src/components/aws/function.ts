@@ -1553,7 +1553,7 @@ export interface FunctionArgs {
  *   <TabItem label="Go">
  *   ```go title="src/main.go"
  *   import (
- *     "github.com/neopilot-ai/neo/v3/sdk/golang/resource"
+ *     "github.com/neopilot-ai/neo/sdk/golang/resource"
  *   )
  *
  *   resource.Get("MyBucket", "name")

@@ -3,11 +3,11 @@ package types
 import (
 	"log/slog"
 
-	"github.com/neopilot-ai/neo/v3/pkg/project/common"
-	"github.com/neopilot-ai/neo/v3/pkg/project/path"
-	"github.com/neopilot-ai/neo/v3/pkg/types/python"
-	"github.com/neopilot-ai/neo/v3/pkg/types/rails"
-	"github.com/neopilot-ai/neo/v3/pkg/types/typescript"
+	"github.com/neopilot-ai/neo/pkg/project/common"
+	"github.com/neopilot-ai/neo/pkg/project/path"
+	"github.com/neopilot-ai/neo/pkg/types/python"
+	"github.com/neopilot-ai/neo/pkg/types/rails"
+	"github.com/neopilot-ai/neo/pkg/types/typescript"
 )
 
 type Generator = func(root string, complete common.Links) error

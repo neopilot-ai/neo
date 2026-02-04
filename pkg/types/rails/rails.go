@@ -6,8 +6,8 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/neopilot-ai/neo/v3/internal/fs"
-	"github.com/neopilot-ai/neo/v3/pkg/project/common"
+	"github.com/neopilot-ai/neo/internal/fs"
+	"github.com/neopilot-ai/neo/pkg/project/common"
 )
 
 func Generate(root string, links common.Links) error {

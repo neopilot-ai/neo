@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/neopilot-ai/neo/v3/pkg/id"
+	"github.com/neopilot-ai/neo/pkg/id"
 )
 
 func run(t *testing.T, genFunc func() string, compareFunc func(string, string) bool, order string) {

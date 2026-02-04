@@ -16,12 +16,12 @@ import (
 	"github.com/charmbracelet/x/ansi"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/apitype"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
-	"github.com/neopilot-ai/neo/v3/cmd/neo/mosaic/aws"
-	"github.com/neopilot-ai/neo/v3/cmd/neo/mosaic/cloudflare"
-	"github.com/neopilot-ai/neo/v3/cmd/neo/mosaic/deployer"
-	"github.com/neopilot-ai/neo/v3/cmd/neo/mosaic/ui/common"
-	"github.com/neopilot-ai/neo/v3/pkg/flag"
-	"github.com/neopilot-ai/neo/v3/pkg/project"
+	"github.com/neopilot-ai/neo/cmd/neo/mosaic/aws"
+	"github.com/neopilot-ai/neo/cmd/neo/mosaic/cloudflare"
+	"github.com/neopilot-ai/neo/cmd/neo/mosaic/deployer"
+	"github.com/neopilot-ai/neo/cmd/neo/mosaic/ui/common"
+	"github.com/neopilot-ai/neo/pkg/flag"
+	"github.com/neopilot-ai/neo/pkg/project"
 
 	"golang.org/x/crypto/ssh/terminal"
 )

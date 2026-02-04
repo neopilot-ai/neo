@@ -1,7 +1,7 @@
 package termutil
 
 import (
-	"github.com/neopilot-ai/neo/v3/cmd/darktile/sixel"
+	"github.com/neopilot-ai/neo/cmd/darktile/sixel"
 	"image"
 	"math"
 	"strings"

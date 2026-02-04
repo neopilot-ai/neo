@@ -8,7 +8,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/config v1.28.7
 	github.com/aws/aws-sdk-go-v2/service/s3 v1.71.1
 	github.com/google/uuid v1.6.0
-	github.com/neopilot-ai/neo/v3 v3.4.27
+	github.com/neopilot-ai/neo v3.4.27
 )
 
 require (

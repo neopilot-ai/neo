@@ -9,7 +9,7 @@ import (
 	"path/filepath"
 
 	"github.com/evanw/esbuild/pkg/api"
-	"github.com/neopilot-ai/neo/v3/pkg/process"
+	"github.com/neopilot-ai/neo/pkg/process"
 	"golang.org/x/sync/errgroup"
 )
 

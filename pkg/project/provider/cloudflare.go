@@ -15,7 +15,7 @@ import (
 	_ "unsafe"
 
 	cloudflare "github.com/cloudflare/cloudflare-go"
-	"github.com/neopilot-ai/neo/v3/internal/util"
+	"github.com/neopilot-ai/neo/internal/util"
 )
 
 type CloudflareProvider struct {

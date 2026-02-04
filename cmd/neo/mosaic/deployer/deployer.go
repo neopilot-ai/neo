@@ -5,12 +5,12 @@ import (
 	"log/slog"
 	"reflect"
 
-	"github.com/neopilot-ai/neo/v3/cmd/neo/mosaic/errors"
-	"github.com/neopilot-ai/neo/v3/cmd/neo/mosaic/watcher"
-	"github.com/neopilot-ai/neo/v3/internal/util"
-	"github.com/neopilot-ai/neo/v3/pkg/bus"
-	"github.com/neopilot-ai/neo/v3/pkg/project"
-	"github.com/neopilot-ai/neo/v3/pkg/server"
+	"github.com/neopilot-ai/neo/cmd/neo/mosaic/errors"
+	"github.com/neopilot-ai/neo/cmd/neo/mosaic/watcher"
+	"github.com/neopilot-ai/neo/internal/util"
+	"github.com/neopilot-ai/neo/pkg/bus"
+	"github.com/neopilot-ai/neo/pkg/project"
+	"github.com/neopilot-ai/neo/pkg/server"
 )
 
 type DeployRequestedEvent struct{}

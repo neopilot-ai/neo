@@ -9,12 +9,12 @@ import (
 	"strings"
 
 	"github.com/fatih/color"
-	"github.com/neopilot-ai/neo/v3/cmd/neo/cli"
-	"github.com/neopilot-ai/neo/v3/cmd/neo/mosaic/dev"
-	"github.com/neopilot-ai/neo/v3/cmd/neo/mosaic/ui"
-	"github.com/neopilot-ai/neo/v3/internal/util"
-	"github.com/neopilot-ai/neo/v3/pkg/project/provider"
-	"github.com/neopilot-ai/neo/v3/pkg/server"
+	"github.com/neopilot-ai/neo/cmd/neo/cli"
+	"github.com/neopilot-ai/neo/cmd/neo/mosaic/dev"
+	"github.com/neopilot-ai/neo/cmd/neo/mosaic/ui"
+	"github.com/neopilot-ai/neo/internal/util"
+	"github.com/neopilot-ai/neo/pkg/project/provider"
+	"github.com/neopilot-ai/neo/pkg/server"
 	"golang.org/x/sync/errgroup"
 )
 

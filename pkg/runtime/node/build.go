@@ -12,10 +12,10 @@ import (
 
 	"github.com/evanw/esbuild/pkg/api"
 	esbuild "github.com/evanw/esbuild/pkg/api"
-	"github.com/neopilot-ai/neo/v3/internal/fs"
-	"github.com/neopilot-ai/neo/v3/pkg/js"
-	"github.com/neopilot-ai/neo/v3/pkg/process"
-	"github.com/neopilot-ai/neo/v3/pkg/runtime"
+	"github.com/neopilot-ai/neo/internal/fs"
+	"github.com/neopilot-ai/neo/pkg/js"
+	"github.com/neopilot-ai/neo/pkg/process"
+	"github.com/neopilot-ai/neo/pkg/runtime"
 )
 
 var forceExternal = []string{

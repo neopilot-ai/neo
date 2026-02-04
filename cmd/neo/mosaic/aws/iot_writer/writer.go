@@ -12,7 +12,7 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/s3"
 	"github.com/aws/aws-sdk-go/aws"
 	MQTT "github.com/eclipse/paho.mqtt.golang"
-	"github.com/neopilot-ai/neo/v3/internal/util"
+	"github.com/neopilot-ai/neo/internal/util"
 )
 
 const BUFFER_SIZE = 1024 * 120

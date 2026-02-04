@@ -7,7 +7,7 @@ import (
 	"io"
 	"os/exec"
 
-	"github.com/neopilot-ai/neo/v3/pkg/process"
+	"github.com/neopilot-ai/neo/pkg/process"
 )
 
 type Monoplexer struct {

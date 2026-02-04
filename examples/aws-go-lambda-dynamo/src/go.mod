@@ -24,5 +24,5 @@ require (
 	github.com/aws/smithy-go v1.22.1 // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
-	github.com/neopilot-ai/neo/v3 v3.4.27 // indirect
+	github.com/neopilot-ai/neo v3.4.27 // indirect
 )

@@ -9,10 +9,10 @@ import (
 	"path/filepath"
 	"reflect"
 
-	"github.com/neopilot-ai/neo/v3/cmd/neo/mosaic/deployer"
-	"github.com/neopilot-ai/neo/v3/pkg/bus"
-	"github.com/neopilot-ai/neo/v3/pkg/project"
-	"github.com/neopilot-ai/neo/v3/pkg/server"
+	"github.com/neopilot-ai/neo/cmd/neo/mosaic/deployer"
+	"github.com/neopilot-ai/neo/pkg/bus"
+	"github.com/neopilot-ai/neo/pkg/project"
+	"github.com/neopilot-ai/neo/pkg/server"
 	"golang.org/x/sync/errgroup"
 )
 

@@ -11,10 +11,10 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/ecs"
 	"github.com/aws/aws-sdk-go-v2/service/ecs/types"
 	"github.com/kballard/go-shellquote"
-	"github.com/neopilot-ai/neo/v3/cmd/neo/mosaic/aws/bridge"
-	"github.com/neopilot-ai/neo/v3/pkg/bus"
-	"github.com/neopilot-ai/neo/v3/pkg/process"
-	"github.com/neopilot-ai/neo/v3/pkg/project"
+	"github.com/neopilot-ai/neo/cmd/neo/mosaic/aws/bridge"
+	"github.com/neopilot-ai/neo/pkg/bus"
+	"github.com/neopilot-ai/neo/pkg/process"
+	"github.com/neopilot-ai/neo/pkg/project"
 )
 
 type TaskProvisionEvent struct {

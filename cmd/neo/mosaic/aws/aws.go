@@ -7,11 +7,11 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/neopilot-ai/neo/v3/cmd/neo/mosaic/aws/appsync"
-	"github.com/neopilot-ai/neo/v3/cmd/neo/mosaic/aws/bridge"
-	"github.com/neopilot-ai/neo/v3/pkg/project"
-	"github.com/neopilot-ai/neo/v3/pkg/project/provider"
-	"github.com/neopilot-ai/neo/v3/pkg/server"
+	"github.com/neopilot-ai/neo/cmd/neo/mosaic/aws/appsync"
+	"github.com/neopilot-ai/neo/cmd/neo/mosaic/aws/bridge"
+	"github.com/neopilot-ai/neo/pkg/project"
+	"github.com/neopilot-ai/neo/pkg/project/provider"
+	"github.com/neopilot-ai/neo/pkg/server"
 )
 
 var ErrIoTDelay = fmt.Errorf("iot not available")

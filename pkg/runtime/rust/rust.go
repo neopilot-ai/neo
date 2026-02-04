@@ -13,9 +13,9 @@ import (
 	"sync"
 
 	"github.com/BurntSushi/toml"
-	"github.com/neopilot-ai/neo/v3/internal/fs"
-	"github.com/neopilot-ai/neo/v3/pkg/process"
-	"github.com/neopilot-ai/neo/v3/pkg/runtime"
+	"github.com/neopilot-ai/neo/internal/fs"
+	"github.com/neopilot-ai/neo/pkg/process"
+	"github.com/neopilot-ai/neo/pkg/runtime"
 )
 
 type Runtime struct {

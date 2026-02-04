@@ -7,9 +7,9 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/neopilot-ai/neo/v3/internal/fs"
-	"github.com/neopilot-ai/neo/v3/pkg/js"
-	"github.com/neopilot-ai/neo/v3/pkg/project/common"
+	"github.com/neopilot-ai/neo/internal/fs"
+	"github.com/neopilot-ai/neo/pkg/js"
+	"github.com/neopilot-ai/neo/pkg/project/common"
 )
 
 var mapping = map[string]string{

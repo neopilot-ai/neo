@@ -9,11 +9,11 @@ import (
 	"sync"
 
 	"github.com/posthog/posthog-go"
-	"github.com/neopilot-ai/neo/v3/internal/fs"
-	"github.com/neopilot-ai/neo/v3/internal/util"
-	"github.com/neopilot-ai/neo/v3/pkg/flag"
-	"github.com/neopilot-ai/neo/v3/pkg/global"
-	"github.com/neopilot-ai/neo/v3/pkg/process"
+	"github.com/neopilot-ai/neo/internal/fs"
+	"github.com/neopilot-ai/neo/internal/util"
+	"github.com/neopilot-ai/neo/pkg/flag"
+	"github.com/neopilot-ai/neo/pkg/global"
+	"github.com/neopilot-ai/neo/pkg/process"
 )
 
 const (

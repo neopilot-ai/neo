@@ -9,8 +9,8 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/neopilot-ai/neo/v3/internal/util"
-	"github.com/neopilot-ai/neo/v3/pkg/process"
+	"github.com/neopilot-ai/neo/internal/util"
+	"github.com/neopilot-ai/neo/pkg/process"
 )
 
 type linuxPlatform struct{}

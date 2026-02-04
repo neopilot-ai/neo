@@ -12,9 +12,9 @@ import (
 	"time"
 
 	"github.com/aws/aws-sdk-go-v2/config"
-	"github.com/neopilot-ai/neo/v3/cmd/neo/mosaic/aws/appsync"
-	"github.com/neopilot-ai/neo/v3/cmd/neo/mosaic/aws/bridge"
-	"github.com/neopilot-ai/neo/v3/pkg/id"
+	"github.com/neopilot-ai/neo/cmd/neo/mosaic/aws/appsync"
+	"github.com/neopilot-ai/neo/cmd/neo/mosaic/aws/bridge"
+	"github.com/neopilot-ai/neo/pkg/id"
 )
 
 var NEO_APP = os.Getenv("NEO_APP")

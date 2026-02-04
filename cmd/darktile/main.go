@@ -9,7 +9,7 @@ import (
 
 	tea "github.com/charmbracelet/bubbletea/v2"
 	"github.com/charmbracelet/lipgloss"
-	"github.com/neopilot-ai/neo/v3/cmd/darktile/termutil"
+	"github.com/neopilot-ai/neo/cmd/darktile/termutil"
 )
 
 type model struct {

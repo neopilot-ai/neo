@@ -9,10 +9,10 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/neopilot-ai/neo/v3/cmd/neo/mosaic/ui/common"
-	"github.com/neopilot-ai/neo/v3/pkg/bus"
-	"github.com/neopilot-ai/neo/v3/pkg/flag"
-	"github.com/neopilot-ai/neo/v3/pkg/process"
+	"github.com/neopilot-ai/neo/cmd/neo/mosaic/ui/common"
+	"github.com/neopilot-ai/neo/pkg/bus"
+	"github.com/neopilot-ai/neo/pkg/flag"
+	"github.com/neopilot-ai/neo/pkg/process"
 	"golang.org/x/sync/semaphore"
 )
 

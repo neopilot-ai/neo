@@ -11,9 +11,9 @@ import (
 
 	"github.com/briandowns/spinner"
 	"github.com/joho/godotenv"
-	"github.com/neopilot-ai/neo/v3/internal/util"
-	"github.com/neopilot-ai/neo/v3/pkg/flag"
-	"github.com/neopilot-ai/neo/v3/pkg/project"
+	"github.com/neopilot-ai/neo/internal/util"
+	"github.com/neopilot-ai/neo/pkg/flag"
+	"github.com/neopilot-ai/neo/pkg/project"
 )
 
 var logFile = (func() *os.File {

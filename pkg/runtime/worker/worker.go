@@ -13,9 +13,9 @@ import (
 
 	"github.com/evanw/esbuild/pkg/api"
 	esbuild "github.com/evanw/esbuild/pkg/api"
-	"github.com/neopilot-ai/neo/v3/pkg/project/path"
-	"github.com/neopilot-ai/neo/v3/pkg/runtime"
-	"github.com/neopilot-ai/neo/v3/pkg/runtime/node"
+	"github.com/neopilot-ai/neo/pkg/project/path"
+	"github.com/neopilot-ai/neo/pkg/runtime"
+	"github.com/neopilot-ai/neo/pkg/runtime/node"
 )
 
 type Runtime struct {

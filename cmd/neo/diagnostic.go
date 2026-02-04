@@ -8,10 +8,10 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/neopilot-ai/neo/v3/cmd/neo/cli"
-	"github.com/neopilot-ai/neo/v3/cmd/neo/mosaic/ui"
-	"github.com/neopilot-ai/neo/v3/pkg/id"
-	"github.com/neopilot-ai/neo/v3/pkg/project"
+	"github.com/neopilot-ai/neo/cmd/neo/cli"
+	"github.com/neopilot-ai/neo/cmd/neo/mosaic/ui"
+	"github.com/neopilot-ai/neo/pkg/id"
+	"github.com/neopilot-ai/neo/pkg/project"
 )
 
 var CmdDiagnostic = &cli.Command{

@@ -11,12 +11,12 @@ import (
 	"strings"
 
 	"github.com/Masterminds/semver/v3"
-	"github.com/neopilot-ai/neo/v3/pkg/flag"
-	"github.com/neopilot-ai/neo/v3/pkg/global"
-	"github.com/neopilot-ai/neo/v3/pkg/npm"
-	"github.com/neopilot-ai/neo/v3/pkg/process"
-	"github.com/neopilot-ai/neo/v3/pkg/project/path"
-	"github.com/neopilot-ai/neo/v3/platform"
+	"github.com/neopilot-ai/neo/pkg/flag"
+	"github.com/neopilot-ai/neo/pkg/global"
+	"github.com/neopilot-ai/neo/pkg/npm"
+	"github.com/neopilot-ai/neo/pkg/process"
+	"github.com/neopilot-ai/neo/pkg/project/path"
+	"github.com/neopilot-ai/neo/platform"
 	"golang.org/x/sync/errgroup"
 )
 

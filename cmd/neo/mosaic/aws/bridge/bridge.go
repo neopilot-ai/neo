@@ -8,8 +8,8 @@ import (
 	"iter"
 	"log/slog"
 
-	"github.com/neopilot-ai/neo/v3/cmd/neo/mosaic/aws/appsync"
-	"github.com/neopilot-ai/neo/v3/pkg/id"
+	"github.com/neopilot-ai/neo/cmd/neo/mosaic/aws/appsync"
+	"github.com/neopilot-ai/neo/pkg/id"
 )
 
 type Packet struct {

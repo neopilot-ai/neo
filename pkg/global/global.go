@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 
 	"github.com/pulumi/pulumi/sdk/v3"
-	"github.com/neopilot-ai/neo/v3/pkg/flag"
+	"github.com/neopilot-ai/neo/pkg/flag"
 )
 
 var PULUMI_VERSION = "v" + sdk.Version.String()

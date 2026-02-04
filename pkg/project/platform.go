@@ -7,8 +7,8 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/neopilot-ai/neo/v3/pkg/js"
-	"github.com/neopilot-ai/neo/v3/platform"
+	"github.com/neopilot-ai/neo/pkg/js"
+	"github.com/neopilot-ai/neo/platform"
 )
 
 func (p *Project) CheckPlatform(version string) bool {

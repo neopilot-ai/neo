@@ -6,8 +6,8 @@ import (
 	"net/rpc"
 	"sync"
 
-	"github.com/neopilot-ai/neo/v3/pkg/project"
-	"github.com/neopilot-ai/neo/v3/pkg/project/provider"
+	"github.com/neopilot-ai/neo/pkg/project"
+	"github.com/neopilot-ai/neo/pkg/project/provider"
 )
 
 type aws struct {

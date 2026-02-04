@@ -9,7 +9,7 @@
  *
  * ```go title="src/main.go"
  * import (
- *   "github.com/neopilot-ai/neo/v3/sdk/golang/resource"
+ *   "github.com/neopilot-ai/neo/sdk/golang/resource"
  * )
  *
  * func main() {

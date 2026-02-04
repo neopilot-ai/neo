@@ -5,8 +5,8 @@ import (
 	"runtime"
 
 	"github.com/pulumi/pulumi/sdk/v3"
-	"github.com/neopilot-ai/neo/v3/cmd/neo/cli"
-	"github.com/neopilot-ai/neo/v3/pkg/global"
+	"github.com/neopilot-ai/neo/cmd/neo/cli"
+	"github.com/neopilot-ai/neo/pkg/global"
 )
 
 var CmdVersion = &cli.Command{

@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/aws/aws-lambda-go/lambda"
-	"github.com/neopilot-ai/neo/v3/sdk/golang/resource"
+	"github.com/neopilot-ai/neo/sdk/golang/resource"
 )
 
 func handler() (string, error) {

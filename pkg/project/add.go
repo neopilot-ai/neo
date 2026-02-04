@@ -1,7 +1,7 @@
 package project
 
 import (
-	"github.com/neopilot-ai/neo/v3/pkg/process"
+	"github.com/neopilot-ai/neo/pkg/process"
 	"os"
 	"path/filepath"
 )

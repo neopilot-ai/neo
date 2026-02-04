@@ -5,15 +5,15 @@ import (
 	"log/slog"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/common/apitype"
-	"github.com/neopilot-ai/neo/v3/cmd/neo/cli"
-	"github.com/neopilot-ai/neo/v3/cmd/neo/mosaic/aws"
-	"github.com/neopilot-ai/neo/v3/cmd/neo/mosaic/cloudflare"
-	"github.com/neopilot-ai/neo/v3/cmd/neo/mosaic/deployer"
-	"github.com/neopilot-ai/neo/v3/cmd/neo/mosaic/dev"
-	"github.com/neopilot-ai/neo/v3/cmd/neo/mosaic/ui"
-	"github.com/neopilot-ai/neo/v3/cmd/neo/mosaic/ui/common"
-	"github.com/neopilot-ai/neo/v3/pkg/project"
-	"github.com/neopilot-ai/neo/v3/pkg/server"
+	"github.com/neopilot-ai/neo/cmd/neo/cli"
+	"github.com/neopilot-ai/neo/cmd/neo/mosaic/aws"
+	"github.com/neopilot-ai/neo/cmd/neo/mosaic/cloudflare"
+	"github.com/neopilot-ai/neo/cmd/neo/mosaic/deployer"
+	"github.com/neopilot-ai/neo/cmd/neo/mosaic/dev"
+	"github.com/neopilot-ai/neo/cmd/neo/mosaic/ui"
+	"github.com/neopilot-ai/neo/cmd/neo/mosaic/ui/common"
+	"github.com/neopilot-ai/neo/pkg/project"
+	"github.com/neopilot-ai/neo/pkg/server"
 )
 
 func CmdUI(c *cli.Cli) error {

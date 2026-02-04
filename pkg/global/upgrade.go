@@ -14,7 +14,7 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/neopilot-ai/neo/v3/pkg/npm"
+	"github.com/neopilot-ai/neo/pkg/npm"
 )
 
 func Upgrade(existingVersion string, nextVersion string) (string, error) {

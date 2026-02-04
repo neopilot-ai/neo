@@ -1,4 +1,4 @@
-module github.com/neopilot-ai/neo/v3
+module github.com/neopilot-ai/neo
 
 go 1.24.7
 

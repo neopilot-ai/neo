@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/neopilot-ai/neo/v3/internal/fs"
+	"github.com/neopilot-ai/neo/internal/fs"
 )
 
 type Package struct {

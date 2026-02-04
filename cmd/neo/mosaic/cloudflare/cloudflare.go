@@ -10,13 +10,13 @@ import (
 
 	"github.com/cloudflare/cloudflare-go"
 	"github.com/gorilla/websocket"
-	"github.com/neopilot-ai/neo/v3/cmd/neo/mosaic/watcher"
-	"github.com/neopilot-ai/neo/v3/internal/util"
-	"github.com/neopilot-ai/neo/v3/pkg/bus"
-	"github.com/neopilot-ai/neo/v3/pkg/project"
-	"github.com/neopilot-ai/neo/v3/pkg/project/provider"
-	"github.com/neopilot-ai/neo/v3/pkg/runtime"
-	"github.com/neopilot-ai/neo/v3/pkg/runtime/worker"
+	"github.com/neopilot-ai/neo/cmd/neo/mosaic/watcher"
+	"github.com/neopilot-ai/neo/internal/util"
+	"github.com/neopilot-ai/neo/pkg/bus"
+	"github.com/neopilot-ai/neo/pkg/project"
+	"github.com/neopilot-ai/neo/pkg/project/provider"
+	"github.com/neopilot-ai/neo/pkg/runtime"
+	"github.com/neopilot-ai/neo/pkg/runtime/worker"
 )
 
 type WorkerBuildEvent struct {

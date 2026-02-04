@@ -11,7 +11,7 @@ import (
 	"github.com/aws/aws-lambda-go/lambda"
 	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/service/dynamodb"
-	"github.com/neopilot-ai/neo/v3/sdk/golang/resource"
+	"github.com/neopilot-ai/neo/sdk/golang/resource"
 )
 
 type App struct {
