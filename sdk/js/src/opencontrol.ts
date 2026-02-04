@@ -48,7 +48,7 @@ export const tools = [
       return resources
         .filter(
           (r: any) =>
-            r.type !== "neo:sst:LinkRef" &&
+            r.type !== "neo:neo:LinkRef" &&
             !r.type.startsWith("pulumi:provider:")
         )
         .map((r: any) => ({

@@ -11,7 +11,7 @@ lambda_http = "0.13.0"
 serde = { version = "1.0.217", features = ["derive"] }
 serde_json = "1.0.138"
 # this will break when not in this repo.
-sst_sdk = { version = "0.1.0", path = "../../sdk/rust" }
+neo_sdk = { version = "0.1.0", path = "../../sdk/rust" }
 # neo_sdk = "0.1.0"
 tokio = { version = "1", features = ["macros"] }
 uuid = { version = "1.13.1", features = ["v4"] }

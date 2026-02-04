@@ -63,7 +63,7 @@ func getCompletedEvent(ctx context.Context, passphrase string, workdir *PulumiWo
 			continue
 		}
 		if resource.URN.Type().Module().Package().Name() == "neo" {
-			if resource.Type == "neo:sst:Version" {
+			if resource.Type == "neo:neo:Version" {
 				target, targetOk := outputs["target"].(string)
 				version, versionOk := outputs["version"].(float64)
 				if targetOk && versionOk {
@@ -71,7 +71,7 @@ func getCompletedEvent(ctx context.Context, passphrase string, workdir *PulumiWo
 				}
 			}
 
-			if resource.Type != "neo:sst:Version" {
+			if resource.Type != "neo:neo:Version" {
 				name := resource.URN.Name()
 				_, ok := complete.Versions[name]
 				if !ok {
@@ -122,7 +122,7 @@ func getCompletedEvent(ctx context.Context, passphrase string, workdir *PulumiWo
 			complete.Hints[string(resource.URN)] = hint
 		}
 
-		if resource.Type == "neo:sst:LinkRef" {
+		if resource.Type == "neo:neo:LinkRef" {
 			target, targetOk := outputs["target"].(string)
 			properties, propertiesOk := outputs["properties"].(map[string]interface{})
 			if !targetOk || !propertiesOk {

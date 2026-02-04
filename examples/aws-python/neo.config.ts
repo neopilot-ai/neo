@@ -58,7 +58,7 @@
  *     print(Resource.MyLinkableValue.foo)
  * ```
  *
- * Where the `sst` package can be added to your `pyproject.toml`.
+ * Where the `neo` package can be added to your `pyproject.toml`.
  *
  * ```toml title="functions/pyproject.toml"
  * [tool.uv.sources]

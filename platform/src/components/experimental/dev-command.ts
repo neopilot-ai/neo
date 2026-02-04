@@ -122,6 +122,6 @@ export class DevCommand extends Component {
   }
 }
 
-const __pulumiType = "neo:sst:DevCommand";
+const __pulumiType = "neo:neo:DevCommand";
 // @ts-expect-error
 DevCommand.__pulumiType = __pulumiType;

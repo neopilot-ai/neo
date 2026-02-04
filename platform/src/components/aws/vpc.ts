@@ -561,7 +561,7 @@ export class Vpc extends Component implements Link.Linkable {
         .getInstancesOutput(
           {
             filters: [
-              { name: "tag:sst:is-nat", values: ["true"] },
+              { name: "tag:neo:is-nat", values: ["true"] },
               { name: "vpc-id", values: [vpcId] },
             ],
           },
@@ -618,7 +618,7 @@ export class Vpc extends Component implements Link.Linkable {
         .getInstancesOutput(
           {
             filters: [
-              { name: "tag:sst:is-bastion", values: ["true"] },
+              { name: "tag:neo:is-bastion", values: ["true"] },
               { name: "vpc-id", values: [vpcId] },
             ],
           },

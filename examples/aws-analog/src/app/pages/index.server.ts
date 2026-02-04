@@ -1,4 +1,4 @@
-import { Resource } from 'sst';
+import { Resource } from 'neo';
 import { PageServerLoad } from '@analogjs/router';
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';

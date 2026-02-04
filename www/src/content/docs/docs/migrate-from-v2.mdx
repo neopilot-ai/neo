@@ -519,7 +519,7 @@ Listed below are some of the changes to your [`neo.config.ts`](/docs/reference/c
 
 #### No imports
 
-All the constructs or _components_ are available in the global context. So there's no need to import anything. Your app's `package.json` only needs the `sst` package. There are no extra CDK or infrastructure related packages.
+All the constructs or _components_ are available in the global context. So there's no need to import anything. Your app's `package.json` only needs the `neo` package. There are no extra CDK or infrastructure related packages.
 
 ---
 
@@ -577,7 +577,7 @@ Learn more about [`$transform`](/docs/reference/global/#transform).
 
 The Node.js client, now called the [JS SDK](/docs/reference/sdk/) has a couple of minor changes.
 
-Update `sst` to the latest version in your `package.json`. If you have a monorepo, make sure to update `sst` in all your packages.
+Update `neo` to the latest version in your `package.json`. If you have a monorepo, make sure to update `neo` in all your packages.
 
 ---
 
@@ -698,7 +698,7 @@ These were experimental and are not currently supported in v3. To continue using
 }
 ```
 
-This means that you have both v2 and v3 installed in your project. Since, they both have an `sst` binary, you want to make sure v3 takes precedence. So v3 should be listed **after** v2.
+This means that you have both v2 and v3 installed in your project. Since, they both have an `neo` binary, you want to make sure v3 takes precedence. So v3 should be listed **after** v2.
 
 :::caution
 Make sure v3 is listed after v2 in your `package.json`.

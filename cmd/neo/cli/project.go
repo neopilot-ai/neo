@@ -76,10 +76,10 @@ func (c *Cli) InitProject() (*project.Project, error) {
 		if err != nil {
 			return nil, err
 		}
-		sstLog := p.PathLog("neo")
+		neoLog := p.PathLog("neo")
 		logPath := p.PathLog("")
 		os.MkdirAll(logPath, 0755)
-		nextLogFile, err := os.Create(sstLog)
+		nextLogFile, err := os.Create(neoLog)
 		if err != nil {
 			return nil, util.NewReadableError(err, "Could not create log file")
 		}

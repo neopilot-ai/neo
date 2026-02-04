@@ -90,7 +90,7 @@ new neo.aws.Analog("MyWeb", {
 When our app loads, we'll generate a pre-signed URL for the file upload on the server. Create a new `src/pages/index.server.ts` with the following.
 
 ```ts title="src/pages/index.server.ts" {10}
-import { Resource } from 'sst';
+import { Resource } from 'neo';
 import { PageServerLoad } from '@analogjs/router';
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';

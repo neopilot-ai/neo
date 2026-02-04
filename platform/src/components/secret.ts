@@ -110,7 +110,7 @@ export class Secret extends Component implements Link.Linkable {
    */
   constructor(name: string, placeholder?: Input<string>) {
     super(
-      "neo:sst:Secret",
+      "neo:neo:Secret",
       name,
       {
         placeholder,

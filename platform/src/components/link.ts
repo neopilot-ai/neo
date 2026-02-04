@@ -23,7 +23,7 @@ export module Link {
   export class Ref extends ComponentResource {
     constructor(target: string, type: string, properties: any, include?: any) {
       super(
-        "neo:sst:LinkRef",
+        "neo:neo:LinkRef",
         target + "LinkRef",
         {
           properties,

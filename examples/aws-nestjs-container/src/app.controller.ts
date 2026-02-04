@@ -3,7 +3,7 @@ import {
   GetObjectCommand,
   ListObjectsV2Command,
 } from '@aws-sdk/client-s3';
-import { Resource } from 'sst';
+import { Resource } from 'neo';
 import { Express } from 'express';
 import { Upload } from '@aws-sdk/lib-storage';
 import { FileInterceptor } from '@nestjs/platform-express';

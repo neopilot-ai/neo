@@ -182,7 +182,7 @@ export class Linkable<T extends Record<string, any>>
   public static wrappedResources = new Set<string>();
 
   constructor(name: string, definition: Definition<T>) {
-    super("neo:sst:Linkable", name, definition, {});
+    super("neo:neo:Linkable", name, definition, {});
     this._name = name;
     this._definition = definition;
   }
@@ -292,7 +292,7 @@ export class Resource extends Component implements Link.Linkable {
 
   constructor(name: string, properties: any) {
     super(
-      "neo:sst:Resource",
+      "neo:neo:Resource",
       name,
       {
         properties,

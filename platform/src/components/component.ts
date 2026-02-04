@@ -482,7 +482,7 @@ export function $print(...msg: Input<any>[]) {
 
 export class Version extends ComponentResource {
   constructor(target: string, version: number, opts: ComponentResourceOptions) {
-    super("neo:sst:Version", target + "Version", {}, opts);
+    super("neo:neo:Version", target + "Version", {}, opts);
     this.registerOutputs({ target, version });
   }
 }

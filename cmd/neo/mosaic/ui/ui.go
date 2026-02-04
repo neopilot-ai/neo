@@ -28,7 +28,7 @@ import (
 
 type ProgressMode string
 
-var IGNORED_RESOURCES = []string{"neo:sst:Version", "neo:sst:LinkRef", "pulumi:pulumi:Stack"}
+var IGNORED_RESOURCES = []string{"neo:neo:Version", "neo:neo:LinkRef", "pulumi:pulumi:Stack"}
 
 const (
 	ProgressModeDeploy  ProgressMode = "deploy"
