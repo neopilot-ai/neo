@@ -8,8 +8,8 @@ It's a simple setup where a Flutter-based web application (a demo counter app) i
 
 Before you begin, ensure you have the following installed:
 
-- AWS Credentials ([Guide on loading from a file](https://docs.neo.dev/advanced/iam-credentials#loading-from-a-file))
-- NEO CLI ([Documentation](https://neo.dev/docs/reference/cli))
+- AWS Credentials ([Guide on loading from a file](https://docs.neo.khulnasoft.com/advanced/iam-credentials#loading-from-a-file))
+- NEO CLI ([Documentation](https://neo.khulnasoft.com/docs/reference/cli))
 
 ## Getting Started
 

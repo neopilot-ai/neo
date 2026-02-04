@@ -265,7 +265,7 @@ if (import.meta.env.DEV) {
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://neo.dev",
+  site: "https://neo.khulnasoft.com",
   adapter: neo(),
   server: {
     host: "0.0.0.0",
@@ -277,7 +277,7 @@ export default defineConfig({
   redirects: {
     "/install": "https://raw.githubusercontent.com/neo/neo/dev/install",
     "/discord": "https://discord.gg/neo",
-    "/guide": "https://guide.neo.dev",
+    "/guide": "https://guide.neo.khulnasoft.com",
     "/docs/start/aws/container": "/docs/start/aws/express",
   },
   integrations: [

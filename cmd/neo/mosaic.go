@@ -147,7 +147,7 @@ func CmdMosaic(c *cli.Cli) error {
 	}
 
 	if os.Getenv("NEO_SERVER") != "" {
-		return util.NewReadableError(nil, "The dev command for this process does not look right. Check your dev script in package.json to make sure it is simply starting your process and not running `neo dev`. More info here: https://neo.dev/docs/reference/cli/#dev")
+		return util.NewReadableError(nil, "The dev command for this process does not look right. Check your dev script in package.json to make sure it is simply starting your process and not running `neo dev`. More info here: https://neo.khulnasoft.com/docs/reference/cli/#dev")
 	}
 
 	p, err := c.InitProject()

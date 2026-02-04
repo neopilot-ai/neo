@@ -3967,7 +3967,7 @@ const bucket = new neo.aws.Bucket("MyBucket", {
   access: "public",
 });
 const router = new neo.aws.Router("MyRouter", {
-  domain: "router.ion.dev.neo.dev",
+  domain: "router.ion.dev.neo.khulnasoft.com",
   routes: {
     "/api/*": api.url,
     "/*": $interpolate`https://${bucket.domain}`,
@@ -4273,7 +4273,7 @@ const router = new neo.aws.Router("SwiftRouter", {
   routes: {
     "/*": swift.url,
   },
-  domain: "swift.dev.neo.dev",
+  domain: "swift.dev.neo.khulnasoft.com",
 });
 return {
   url: router.url,
@@ -4721,7 +4721,7 @@ const router = new neo.aws.Router("MyRouter", {
     dns: neo.vercel.dns({ domain: "neo.moe" }),
   },
   routes: {
-    "/*": "https://neo.dev",
+    "/*": "https://neo.khulnasoft.com",
   },
 });
 return {

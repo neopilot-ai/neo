@@ -22,7 +22,7 @@ export default $config({
       access: "public",
     });
     const router = new neo.aws.Router("MyRouter", {
-      domain: "router.ion.dev.neo.dev",
+      domain: "router.ion.dev.neo.khulnasoft.com",
       routes: {
         "/api/*": api.url,
         "/*": $interpolate`https://${bucket.domain}`,

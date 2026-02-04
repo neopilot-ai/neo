@@ -12,9 +12,9 @@ import pulumiTweet from '../../../assets/blog/neo-pulumi-tweet.png';
 
 You might've heard that we are working on a new version of NEO (called [Ion](https://github.com/neo/ion)), that's not based on CDK. In this post we'll talk about why we are moving away from CDK and what's going to change.
 
-You might've also seen the demo AI app we built with it — [movies.neo.dev](https://movies.neo.dev)
+You might've also seen the demo AI app we built with it — [movies.neo.khulnasoft.com](https://movies.neo.khulnasoft.com)
 
-[![NEO Ion Movies demo AI app](../../../assets/blog/neo-ion-movies-demo-ai-app.png)](https://movies.neo.dev)
+[![NEO Ion Movies demo AI app](../../../assets/blog/neo-ion-movies-demo-ai-app.png)](https://movies.neo.khulnasoft.com)
 
 This is going to be a fairly long post, so here's an outline of what we'll be covering.
 
@@ -144,9 +144,9 @@ This problem is a deal-breaker for users that are deploying to multiple environm
 
 > You'll need to deploy your app in two steps, this makes it a deal-breaker.
 
-Let's assume you are able to put up with this at your company. You'll run into a new problem. Let's say your Next.js site depends on the value of a resource that's set as a part of the deploy process. Something like a [Config Parameter](https://v2.neo.dev/config). NEO needs to pull this value before the deploy, to build your Next.js site. But since this hasn't been re-deployed yet, it can only fetch its previously deployed value. This can be really hard to debug because it's not immediately apparent what's going on.
+Let's assume you are able to put up with this at your company. You'll run into a new problem. Let's say your Next.js site depends on the value of a resource that's set as a part of the deploy process. Something like a [Config Parameter](https://v2.neo.khulnasoft.com/config). NEO needs to pull this value before the deploy, to build your Next.js site. But since this hasn't been re-deployed yet, it can only fetch its previously deployed value. This can be really hard to debug because it's not immediately apparent what's going on.
 
-NEO exists today because of two main reasons; [Live Lambda](https://v2.neo.dev/live-lambda-development) & [Resource Binding](https://v2.neo.dev/resource-binding). And due to the CDK & CFN deployment model we cannot do Resource Binding well.
+NEO exists today because of two main reasons; [Live Lambda](https://v2.neo.khulnasoft.com/live-lambda-development) & [Resource Binding](https://v2.neo.khulnasoft.com/resource-binding). And due to the CDK & CFN deployment model we cannot do Resource Binding well.
 
 #### 2. Cyclical Dependencies
 
@@ -473,7 +473,7 @@ Status: *Complete*
 - Created a repo for Ion on [GitHub](https://github.com/neo/ion)
 - Implemented the most complicated NEO construct in Ion — Next.js
 - Implemented a few other components, including a new Vector component based on Amazon Bedrock
-- Built a complete full-stack demo application with Ion — [movies.neo.dev](https://movies.neo.dev)
+- Built a complete full-stack demo application with Ion — [movies.neo.khulnasoft.com](https://movies.neo.khulnasoft.com)
 
 You can view the repo for our demo movies app on [GitHub](https://github.com/neo/demo-ai-app). The entire NEO team worked on this app and it was great watching all the CDK issues we listed basically vanish.
 
@@ -486,7 +486,7 @@ Here's what we need to do next for a general release.
 - Implement a few more components and CLI features
 - Write up the docs
 - Do a lot of testing
-- Launch a new site — `ion.neo.dev`
+- Launch a new site — `ion.neo.khulnasoft.com`
 
 At this point you'll be able to create new apps from scratch in Ion. It'll give you a chance to try it out. We'll be directing new users that want to get started with NEO to start with Ion first.
 
@@ -496,7 +496,7 @@ Timeline: *Couple of months from now*
 
 Once Ion is stable, it'll give current NEO users an opportunity to migrate their apps to Ion. We'll create some tools and documentation that'll help with this process.
 
-Once we feel comfortable with it and we know many people will be able to move over, we'll set a date for the NEO v3 release. This is when `ion.neo.dev` will become `neo.dev` and it'll become NEO v3. While NEO v2's docs will be moved to a separate site.
+Once we feel comfortable with it and we know many people will be able to move over, we'll set a date for the NEO v3 release. This is when `ion.neo.khulnasoft.com` will become `neo.khulnasoft.com` and it'll become NEO v3. While NEO v2's docs will be moved to a separate site.
 
 ---
 
@@ -565,7 +565,7 @@ const site = new neo.Nextjs("Web", {
 });
 
 new cloudflare.cdn("Cdn", {
-  domain: "movies.neo.dev",
+  domain: "movies.neo.khulnasoft.com",
   route: {
     "/": site.url,
   },

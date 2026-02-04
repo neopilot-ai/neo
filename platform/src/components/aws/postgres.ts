@@ -552,7 +552,7 @@ export class Postgres extends Component implements Link.Linkable {
         message: [
           `This component has been renamed. Please change:\n`,
           `"neo.aws.Postgres" to "neo.aws.Postgres.v${$cli.state.version[name]}"\n`,
-          `Learn more https://neo.dev/docs/components/#versioning`,
+          `Learn more https://neo.khulnasoft.com/docs/components/#versioning`,
         ].join("\n"),
       });
     }

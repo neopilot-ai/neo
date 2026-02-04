@@ -24,7 +24,7 @@ export default $config({
         dns: neo.vercel.dns({ domain: "neo.moe" }),
       },
       routes: {
-        "/*": "https://neo.dev",
+        "/*": "https://neo.khulnasoft.com",
       },
     });
     return {

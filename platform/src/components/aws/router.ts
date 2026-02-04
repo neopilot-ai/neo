@@ -981,7 +981,7 @@ interface RouterRef {
  * functions deployed to multiple `regions`, it routes to the closest region based
  * on the user's location.
  *
- * You might notice a _placeholder.neo.dev_ behavior in CloudFront. This is not
+ * You might notice a _placeholder.neo.khulnasoft.com_ behavior in CloudFront. This is not
  * used and is only there because CloudFront requires a default behavior.
  *
  * #### Limits
@@ -1109,7 +1109,7 @@ export class Router extends Component implements Link.Linkable {
           );
 
           normalizedRoutes["/*"] = normalizedRoutes["/*"] ?? {
-            url: "https://do-not-exist.neo.dev",
+            url: "https://do-not-exist.neo.khulnasoft.com",
           };
 
           return normalizedRoutes;
@@ -1617,7 +1617,7 @@ async function handler(event) {
               origins: [
                 {
                   originId: "default",
-                  domainName: "placeholder.neo.dev",
+                  domainName: "placeholder.neo.khulnasoft.com",
                   customOriginConfig: {
                     httpPort: 80,
                     httpsPort: 443,

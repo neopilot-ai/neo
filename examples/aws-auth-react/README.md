@@ -1,6 +1,6 @@
 # Monorepo Template
 
-A template to create a monorepo NEO v3 project. [Learn more](https://neo.dev/docs/set-up-a-monorepo).
+A template to create a monorepo NEO v3 project. [Learn more](https://neo.khulnasoft.com/docs/set-up-a-monorepo).
 
 ## Get started
 
@@ -26,7 +26,7 @@ A template to create a monorepo NEO v3 project. [Learn more](https://neo.dev/doc
    npx neo deploy
    ```
 
-5. Optionally, enable [_git push to deploy_](https://neo.dev/docs/console/#autodeploy).
+5. Optionally, enable [_git push to deploy_](https://neo.khulnasoft.com/docs/console/#autodeploy).
 
 ## Usage
 
@@ -78,4 +78,4 @@ In the template, we have an `api.ts`, and `storage.ts`. These export the created
 
 ---
 
-**Join our community** [Discord](https://neo.dev/discord) | [YouTube](https://www.youtube.com/c/neo-dev) | [X.com](https://x.com/NEO_dev)
+**Join our community** [Discord](https://neo.khulnasoft.com/discord) | [YouTube](https://www.youtube.com/c/neo-dev) | [X.com](https://x.com/NEO_dev)

@@ -33,7 +33,7 @@ export default $config({
       routes: {
         "/*": swift.url,
       },
-      domain: "swift.dev.neo.dev",
+      domain: "swift.dev.neo.khulnasoft.com",
     });
     return {
       url: router.url,

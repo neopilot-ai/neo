@@ -22,7 +22,7 @@ export default $config({
         dockerfile: "Dockerfile",
       },
       loadBalancer: {
-        domain: "rust.dockerfile.dev.neo.dev",
+        domain: "rust.dockerfile.dev.neo.khulnasoft.com",
         ports: [
           { listen: "80/http" },
           { listen: "443/https", forward: "80/http" },

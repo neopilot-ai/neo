@@ -944,7 +944,7 @@ async function handler(event) {
             origins: [
               {
                 originId: "default",
-                domainName: "placeholder.neo.dev",
+                domainName: "placeholder.neo.khulnasoft.com",
                 customOriginConfig: {
                   httpPort: 80,
                   httpsPort: 443,

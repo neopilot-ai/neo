@@ -274,10 +274,10 @@ export class Auth extends Component implements Link.Linkable {
         `  - The latest version is now powered by OpenAuth - https://openauth.js.org`,
         ``,
         `To upgrade:`,
-        `  - Set \`forceUpgrade: "v${_version}"\` on the "Auth" component. Learn more https://neo.dev/docs/component/aws/auth#forceupgrade`,
+        `  - Set \`forceUpgrade: "v${_version}"\` on the "Auth" component. Learn more https://neo.khulnasoft.com/docs/component/aws/auth#forceupgrade`,
         ``,
         `To continue using v${$cli.state.version[name]}:`,
-        `  - Rename "Auth" to "Auth.v${$cli.state.version[name]}". Learn more about versioning - https://neo.dev/docs/components/#versioning`,
+        `  - Rename "Auth" to "Auth.v${$cli.state.version[name]}". Learn more about versioning - https://neo.khulnasoft.com/docs/components/#versioning`,
       ].join("\n"),
       forceUpgrade: args.forceUpgrade,
     });

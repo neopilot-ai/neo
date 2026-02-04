@@ -105,7 +105,7 @@ var telemetryEnvironment = sync.OnceValue((func() map[string]interface{} {
 var client = (func() posthog.Client {
 	client, _ := posthog.NewWithConfig("phc_M0b2lW4smpsGIufiTBZ22USKwCy0fyqljMOGufJc79p",
 		posthog.Config{
-			Endpoint: "https://telemetry.ion.neo.dev",
+			Endpoint: "https://telemetry.ion.neo.khulnasoft.com",
 		},
 	)
 	return client

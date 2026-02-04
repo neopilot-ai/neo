@@ -387,7 +387,7 @@ func (u *UI) Event(unknown interface{}) {
 				"  ",
 				TEXT_NORMAL_BOLD.Render("Permalink"),
 				"   ",
-				TEXT_NORMAL.Render(`https://neo.dev/u/`+evt.UpdateID[len(evt.UpdateID)-8:]),
+				TEXT_NORMAL.Render(`https://neo.khulnasoft.com/u/`+evt.UpdateID[len(evt.UpdateID)-8:]),
 			)
 		}
 		u.blank()
@@ -500,7 +500,7 @@ func (u *UI) Event(unknown interface{}) {
 				u.println(
 					TEXT_NORMAL_BOLD.Render("View more in the console:"),
 					" ",
-					TEXT_INFO.Render(`https://neo.dev/u/`+evt.UpdateID[len(evt.UpdateID)-8:]),
+					TEXT_INFO.Render(`https://neo.khulnasoft.com/u/`+evt.UpdateID[len(evt.UpdateID)-8:]),
 				)
 			}
 		}
@@ -631,7 +631,7 @@ func (u *UI) header(version, app, stage string) {
 	if u.options.Dev {
 		u.println(
 			TEXT_NORMAL_BOLD.Render(fmt.Sprintf("   %-12s", "Console:")),
-			TEXT_DIM.Render("https://console.neo.dev/local/"+app+"/"+stage),
+			TEXT_DIM.Render("https://console.neo.khulnasoft.com/local/"+app+"/"+stage),
 		)
 	}
 	u.blank()

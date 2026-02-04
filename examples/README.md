@@ -1,6 +1,6 @@
 # Examples
 
-A collection of example NEO apps. You can also [view these in our docs](https://neo.dev/docs/examples/).
+A collection of example NEO apps. You can also [view these in our docs](https://neo.khulnasoft.com/docs/examples/).
 
 ## Generated Docs
 

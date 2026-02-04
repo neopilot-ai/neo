@@ -112,7 +112,7 @@ var CommonErrors = []CommonError{
 		Message: "TooManyCacheBehaviors: Your request contains more CacheBehaviors than are allowed per distribution",
 		Short: []string{
 			"There are too many top-level files and directories inside your app's public asset directory. Move some of them inside subdirectories.",
-			"Learn more about this https://neo.dev/docs/common-errors#toomanycachebehaviors",
+			"Learn more about this https://neo.khulnasoft.com/docs/common-errors#toomanycachebehaviors",
 		},
 		Long: []string{
 			"This error usually happens to `SvelteKit`, `SolidStart`, `Nuxt`, and `Analog` components.",

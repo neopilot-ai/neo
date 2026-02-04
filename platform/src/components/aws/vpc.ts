@@ -703,7 +703,7 @@ export class Vpc extends Component implements Link.Linkable {
         message: [
           `There is a new version of "Vpc" that has breaking changes.`,
           ``,
-          `To continue using the previous version, rename "Vpc" to "Vpc.v${$cli.state.version[name]}". Or recreate this component to update - https://neo.dev/docs/components/#versioning`,
+          `To continue using the previous version, rename "Vpc" to "Vpc.v${$cli.state.version[name]}". Or recreate this component to update - https://neo.khulnasoft.com/docs/components/#versioning`,
         ].join("\n"),
       });
     }

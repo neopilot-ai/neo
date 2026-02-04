@@ -6,7 +6,7 @@ const YOUR_LOCAL_CHROMIUM_PATH =
   "/tmp/localChromium/chromium/mac_arm-1350406/chrome-mac/Chromium.app/Contents/MacOS/Chromium";
 
 export async function handler() {
-  const url = "https://neo.dev";
+  const url = "https://neo.khulnasoft.com";
   const width = 1024;
   const height = 768;
 

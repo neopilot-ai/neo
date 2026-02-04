@@ -34,13 +34,13 @@ export default $config({
   async run() {
     const domain =
       {
-        production: "neo.dev",
-        dev: "dev.neo.dev",
-      }[$app.stage] || $app.stage + "dev.neo.dev";
+        production: "neo.khulnasoft.com",
+        dev: "dev.neo.khulnasoft.com",
+      }[$app.stage] || $app.stage + "dev.neo.khulnasoft.com";
 
-    // Redirect /examples to guide.neo.dev/examples
-    // Redirect /chapters to guide.neo.dev/chapters
-    // Redirect /archives to guide.neo.dev/archives
+    // Redirect /examples to guide.neo.khulnasoft.com/examples
+    // Redirect /chapters to guide.neo.khulnasoft.com/chapters
+    // Redirect /archives to guide.neo.khulnasoft.com/archives
     const redirectToGuideBehavior = {
       targetOriginId: "redirect",
       viewerProtocolPolicy: "redirect-to-https",
@@ -59,7 +59,7 @@ export default $config({
               `    statusCode: 302,`,
               `    statusDescription: 'Found',`,
               `    headers: {`,
-              `      location: { value: "https://guide.neo.dev" + request.uri }`,
+              `      location: { value: "https://guide.neo.khulnasoft.com" + request.uri }`,
               `    },`,
               `  };`,
               `}`,
@@ -74,7 +74,7 @@ export default $config({
       },
     };
 
-    // Redirect /u/* to api.console.neo.dev/link/*
+    // Redirect /u/* to api.console.neo.khulnasoft.com/link/*
     const redirectToConsoleBehavior = {
       targetOriginId: "redirect",
       viewerProtocolPolicy: "redirect-to-https",
@@ -93,7 +93,7 @@ export default $config({
               `    statusCode: 302,`,
               `    statusDescription: 'Found',`,
               `    headers: {`,
-              `      location: { value: "https://api.console.neo.dev/link" + request.uri }`,
+              `      location: { value: "https://api.console.neo.khulnasoft.com/link" + request.uri }`,
               `    },`,
               `  };`,
               `}`,
@@ -178,8 +178,8 @@ export default $config({
           ? {
               name: domain,
               redirects: [
-                "www.neo.dev",
-                "ion.neo.dev",
+                "www.neo.khulnasoft.com",
+                "ion.neo.khulnasoft.com",
                 "serverless-stack.com",
                 "www.serverless-stack.com",
               ],
@@ -190,7 +190,7 @@ export default $config({
           args.origins = $output(args.origins).apply((origins) => [
             ...origins,
             {
-              domainName: "guide.neo.dev",
+              domainName: "guide.neo.khulnasoft.com",
               originId: "redirect",
               customOriginConfig: {
                 httpPort: 80,
@@ -216,16 +216,16 @@ export default $config({
       },
     });
 
-    // Redirect docs.neo.dev to neo.dev/docs
+    // Redirect docs.neo.khulnasoft.com to neo.khulnasoft.com/docs
     if ($app.stage === "production") {
       new neo.aws.Router("DocsRouter", {
         domain: {
-          name: "docs.neo.dev",
+          name: "docs.neo.khulnasoft.com",
           aliases: ["docs.serverless-stack.com"],
         },
         routes: {
           "/*": {
-            url: `https://neo.dev/docs`,
+            url: `https://neo.khulnasoft.com/docs`,
             edge: {
               viewerRequest: {
                 injection: `
@@ -233,7 +233,7 @@ return {
   statusCode: 301,
   statusDescription: 'Moved Permanently',
   headers: {
-    location: { value: "https://neo.dev/docs" }
+    location: { value: "https://neo.khulnasoft.com/docs" }
   }
 };
               `,
@@ -244,7 +244,7 @@ return {
       });
     }
 
-    // Redirect telemetry.ion.neo.dev to us.i.posthog.com
+    // Redirect telemetry.ion.neo.khulnasoft.com to us.i.posthog.com
     new neo.aws.Router("TelemetryRouter", {
       domain: {
         name: "telemetry.ion." + domain,
