@@ -1,0 +1,11 @@
+{
+  "name": "neo-monorepo",
+  "workspaces": [
+    "www",
+    "platform",
+    "sdk/js"
+  ],
+  "overrides": {
+    "google-protobuf": "3.21.2"
+  }
+}

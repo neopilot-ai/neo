@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "dependencies": {
+    "neo": "^3.0.2"
+  }
+}

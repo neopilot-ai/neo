@@ -1,0 +1,280 @@
+---
+title: Linking
+description: Link resources together and access them in a typesafe and secure way.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import VideoAside from "../../../components/VideoAside.astro";
+
+Resource Linking  allows you to access your **infrastructure** in your **runtime code** in a typesafe and secure way.
+
+<VideoAside title="Watch a video on linking resources" href="https://youtu.be/s8cWklU4Akw" />
+
+1. Create a resource that you want to link to. For example, a bucket.
+
+   ```ts title="neo.config.ts" {6,11}
+   const bucket = new neo.aws.Bucket("MyBucket");
+   ```
+
+2. Link it to your function or frontend, using the `link` prop.
+
+   <Tabs>
+     <TabItem label="Next.js">
+     ```ts title="neo.config.ts" {2}
+     new neo.aws.Nextjs("MyWeb", {
+       link: [bucket]
+     });
+     ```
+     </TabItem>
+     <TabItem label="Remix">
+     ```ts title="neo.config.ts" {2}
+     new neo.aws.Remix("MyWeb", {
+       link: [bucket]
+     });
+     ```
+     </TabItem>
+     <TabItem label="Astro">
+     ```ts title="neo.config.ts" {2}
+     new neo.aws.Astro("MyWeb", {
+       link: [bucket]
+     });
+     ```
+     </TabItem>
+     <TabItem label="Function">
+     ```ts title="neo.config.ts" {3}
+     new neo.aws.Function("MyFunction", {
+       handler: "src/lambda.handler",
+       link: [bucket]
+     });
+     ```
+     </TabItem>
+   </Tabs>
+
+3. Use the [SDK](/docs/reference/sdk/) to access the linked resource in your runtime in a typesafe way.
+
+   <Tabs>
+     <TabItem label="Next.js">
+     ```js title="app/page.tsx"
+     import { Resource } from "neo";
+
+     console.log(Resource.MyBucket.name);
+     ```
+     </TabItem>
+     <TabItem label="Remix">
+     ```js title="app/routes/_index.tsx"
+     import { Resource } from "neo";
+
+     console.log(Resource.MyBucket.name);
+     ```
+     </TabItem>
+     <TabItem label="Astro">
+     ```astro title="src/pages/index.astro"
+     ---
+     import { Resource } from "neo";
+
+     console.log(Resource.MyBucket.name);
+     ---
+     ```
+     </TabItem>
+     <TabItem label="Function">
+     ```js title="src/lambda.ts"
+     import { Resource } from "neo";
+
+     console.log(Resource.MyBucket.name);
+     ```
+     </TabItem>
+   </Tabs>
+
+   :::tip
+   The SDK currently supports JS/TS, Python, Golang, and Rust.
+   :::
+
+Learn how to use the SDK in [Python](/docs/reference/sdk/#python), [Golang](/docs/reference/sdk/#golang), and [Rust](/docs/reference/sdk/#rust).
+
+---
+
+### Working locally
+
+The above applies to your app deployed through `neo deploy`.
+
+To access linked resources locally you'll need to be running `neo dev`. By default, the `neo dev` CLI runs a multiplexer that also starts your frontend for you. This loads all your linked resources in the environment. Read more about [`neo dev`](/docs/reference/cli/#dev).
+
+However if you are not using the multiplexer.
+
+```bash frame="none"
+neo dev --mode=basic
+```
+
+You'll need to wrap your frontend's dev command with the `neo dev` command.
+
+<Tabs>
+  <TabItem label="Next.js">
+  ```bash
+  neo dev next dev
+  ```
+  </TabItem>
+  <TabItem label="Remix">
+  ```bash
+  neo dev remix dev
+  ```
+  </TabItem>
+  <TabItem label="Astro">
+  ```bash
+  neo dev astro dev
+  ```
+  </TabItem>
+  <TabItem label="Function">
+  ```bash
+  neo dev
+  ```
+  </TabItem>
+</Tabs>
+
+---
+
+## How it works
+
+At high level when you link a resource to a function or frontend, the following happens:
+
+1. The _links_ that the resource exposes are injected into the function package.
+
+   :::tip
+   The links a component exposes are listed in its API reference. For example, you can [view a Bucket's links here](/docs/component/aws/bucket/#links).
+   :::
+
+2. The types to access these links are generated.
+
+3. The function is given permission to access the linked resource.
+
+---
+
+### Injecting links
+
+Resource links are injected into your function or frontend package when you run `neo dev` or `neo deploy`. But this is done in a slightly different way for both these cases.
+
+#### Functions
+
+The functions in NEO are tree shaken and bundled using [esbuild](https://esbuild.github.io/). While bundling, NEO injects the resource links into the [`globalThis`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/globalThis). These are encrypted and added to the function bundle. And they are synchronously decrypted on load by the NEO SDK.
+
+#### Frontends
+
+The frontends are not bundled by NEO. Instead, when they are built, NEO injects the resource links into the `process.env` object using the prefix `NEO_RESOURCE_`.
+
+This is why when you are running your frontend locally, it needs to be wrapped in the `neo dev` command.
+
+:::note
+Links are only available on the server of your frontend.
+:::
+
+Resource links are only available on the server-side of your frontend. If you want to access them in your client components, you'll need to pass them in explicitly.
+
+---
+
+### Generating types
+
+When you run `neo dev` or `neo deploy`, it generates the types to access the linked resources. These are generated as:
+
+2. A `neo-env.d.ts` file in the project root with types for **all** the linked resources in the app.
+1. A `neo-env.d.ts` file in the same directory of the nearest `package.json` of the function or frontend that's _receiving_ the links. This references the root `neo-env.d.ts` file.
+
+You can check the generated `neo-env.d.ts` types into source control. This will let your teammates see the types without having to run `neo dev` when they pull your changes.
+
+---
+
+## Extending linking
+
+The examples above are built into NEO's components. You might want to modify the permissions that are granted as a part of these links.
+
+Or, you might want to link other resources from the Pulumi/Terraform ecosystem. Or want to link a different set of outputs than what NEO exposes.
+
+You can do this using the [`neo.Linkable`](/docs/component/linkable/) component.
+
+---
+
+### Link any value
+
+The `Linkable` component takes a list of properties that you want to link. These can be
+outputs from other resources or constants.
+
+```ts title="neo.config.ts"
+const myLinkable = new neo.Linkable("MyLinkable", {
+  properties: { foo: "bar" }
+});
+```
+
+You can optionally include permissions or bindings for the linked resource.
+
+Now you can now link this resource to your frontend or a function.
+
+```ts title="neo.config.ts" {3}
+new neo.aws.Function("MyApi", {
+  handler: "src/lambda.handler",
+  link: [myLinkable]
+});
+```
+
+Then use the [SDK](/docs/reference/sdk/) to access that at runtime.
+
+```js title="src/lambda.ts"
+import { Resource } from "neo";
+
+console.log(Resource.MyLinkable.foo);
+```
+
+Read more about [`neo.Linkable`](/docs/component/linkable/).
+
+---
+
+### Link any resource
+
+You can also wrap any resource class to make it linkable with the `Linkable.wrap` static method.
+
+```ts title="neo.config.ts"
+Linkable.wrap(aws.dynamodb.Table, (table) => ({
+  properties: { tableName: table.name }
+}));
+```
+
+Now you create an instance of `aws.dynamodb.Table` and link it in your app like any other NEO
+component.
+
+```ts title="neo.config.ts" {7}
+const table = new aws.dynamodb.Table("MyTable", {
+  attributes: [{ name: "id", type: "S" }],
+  hashKey: "id"
+});
+
+new neo.aws.Nextjs("MyWeb", {
+  link: [table]
+});
+```
+
+And use the [SDK](/docs/reference/sdk/) to access it at runtime.
+
+```js title="app/page.tsx"
+import { Resource } from "neo";
+
+console.log(Resource.MyTable.tableName);
+```
+
+---
+
+### Modify built-in links
+
+You can also modify the links NEO creates. For example, you might want to change the permissions of a linkable resource.
+
+```ts title="neo.config.ts" "neo.aws.Bucket"
+ neo.Linkable.wrap(neo.aws.Bucket, (bucket) => ({
+   properties: { name: bucket.name },
+   include: [
+     neo.aws.permission({
+       actions: ["s3:GetObject"],
+       resources: [bucket.arn]
+     })
+   ]
+ }));
+ ```
+
+ This overrides the existing link and lets you create your own.
+
+Read more about [`neo.Linkable.wrap`](/docs/component/linkable/#static-wrap).

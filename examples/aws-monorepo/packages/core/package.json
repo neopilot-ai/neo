@@ -1,0 +1,13 @@
+{
+  "name": "@aws-monorepo/core",
+  "version": "0.0.0",
+  "exports": {
+    "./*": [
+      "./src/*/index.ts",
+      "./src/*.ts"
+    ]
+  },
+  "devDependencies": {
+    "neo": "0.1.17"
+  }
+}

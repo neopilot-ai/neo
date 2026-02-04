@@ -1,0 +1,84 @@
+---
+template: splash
+title: NEO v1
+description: NEO officially hits v1.
+author: jay
+lastUpdated: 2022-05-16
+pagefind: false
+---
+
+import { YouTube } from '@astro-community/astro-embed-youtube';
+
+NEO has now officially hit v1. Join us at the [NEO 1.0 Conf](https://v1conf.neo.dev) as we celebrate its launch!
+
+<YouTube id="hru_qLt2-ug" posterQuality="high" />
+
+A huge thanks to everybody that helped test out the v1 beta versions!
+
+## Background
+
+NEO was released a little over a year ago. Since then we’ve added [a web based dashboard](/docs/console/) and dozens of constructs!
+
+While NEO has been remarkably stable since its early releases, we learnt that there were some inconsistencies and confusing bits in the API. We also felt like we could do a better job of providing inline documentation.
+
+## Goals
+
+NEO v1 addresses this by:
+
+- Making it easy to connect stacks
+- Adding consistent interfaces for:
+    - Underlying AWS resources
+    - Underlying AWS resource names and ARNs
+- Reducing the need for CDK imports
+- Supporting inline TS Docs
+- Laying the foundation for full typesafety
+
+You can read more about NEO v1’s goals over on the docs.
+
+## Migrating
+
+Migrating to v1 should be very straightforward. Most of the changes are reorganizing and renaming construct properties, attributes, and adding TS Docs. The underlying resources (ie. the CloudFormation template) are mostly not impacted. There should be zero downtime during the upgrade.
+
+You can follow the steps in the migration guide to update.
+
+## NEO v1
+
+With the v1 release of NEO, we’ve put together the key building blocks you need to create full-stack serverless applications. Let’s take a quick look at what NEO v1 can do for you.
+
+### Easy to use Constructs
+
+At the heart of NEO are its easy to use constructs. These allow you to define the infrastructure that your application needs.
+
+These constructs also come with great editor support. So you can both auto-complete on fields and read the docs inline.
+
+<YouTube id="pfMeaPyPydo" posterQuality="high" />
+
+### Functional Stacks
+
+In native CDK, stacks are defined as classes. This requires a great deal of boilerplate code and makes it confusing to reference resources across stacks. To simplify this, NEO v1 introduces the concept of Functional Stacks.
+
+<YouTube id="cqzgAJvUQCg" posterQuality="high" />
+
+### NEO Console
+
+NEO also comes with a web based dashboard to manage your apps.
+
+<YouTube id="QvNMM5hpO3M" posterQuality="high" />
+
+### Live Lambda Dev
+
+When you run `neo start`, it’ll start up the [Live Lambda Development](/docs/live) environment. This allows you to set breakpoints and test your Lambda functions locally.
+
+<YouTube id="2w4A06IsBlU" posterQuality="high" />
+
+## NEO 1.0 Conf
+
+To commemorate NEO hitting v1 we are holding the [**NEO 1.0 Conf**](https://v1conf.neo.dev). It’s a free virtual event filled with talks from the community including folks from Comcast, LEGO, Analog Devices, and Shell.
+
+It's streaming live on May 17th at 9am PDT. We hope to see you there!
+
+## Looking ahead
+
+It’s been an amazing year for NEO. When I think about everything we’ve accomplished, I can’t help but wonder that it wouldn’t have happened without our community! A huge thanks to all of you for your support.
+
+We have some really exciting updates in store for you as we step into this new phase of development for NEO. We’ll be sharing more about our direction in the coming weeks and we are giving a sneak peek at the [NEO 1.0 Conf](https://v1conf.neo.dev). So stay tuned!

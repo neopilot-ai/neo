@@ -1,0 +1,17 @@
+{
+  "name": "aws-monorepo",
+  "version": "0.0.0",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "neo dev"
+  },
+  "devDependencies": {
+    "@tsconfig/node20": "^20.1.4",
+    "typescript": "5.3.3"
+  },
+  "dependencies": {
+    "neo": "0.1.17"
+  }
+}

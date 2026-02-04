@@ -1,0 +1,24 @@
+# Command to run NEO, process NEO_RESOURCE_LocoDatabase, and run cargo loco start
+dev stage="production":
+    #!/usr/bin/env bash
+    set -euo pipefail
+
+    # Run NEO shell and capture its output
+    NEO_OUTPUT=$(pnpm neo shell --stage={{stage}} -- env)
+
+    # Extract NEO_RESOURCE_LocoDatabase from NEO output
+    NEO_RESOURCE_LocoDatabase=$(echo "$NEO_OUTPUT" | grep NEO_RESOURCE_LocoDatabase | cut -d '=' -f2-)
+
+    # Ensure the environment variable exists
+    if [ -z "${NEO_RESOURCE_LocoDatabase:-}" ]; then
+        echo "Error: NEO_RESOURCE_LocoDatabase is not set" >&2
+        exit 1
+    fi
+
+    # Use jq to parse the JSON and construct the DATABASE_URL
+    export DATABASE_URL=$(echo "$NEO_RESOURCE_LocoDatabase" | jq -r '
+        "postgres://\(.username):\(.password | @uri)@\(.host):\(.port)/\(.database)"
+    ')
+
+    # Run cargo loco start with the processed DATABASE_URL
+    pnpm neo shell --stage={{stage}} -- cargo loco start

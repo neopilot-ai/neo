@@ -1,0 +1,6 @@
+# neo
+.neo
+
+# rust
+Cargo.lock
+target/

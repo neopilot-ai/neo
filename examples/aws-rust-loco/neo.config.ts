@@ -1,0 +1,62 @@
+/// <reference path="./.neo/platform/config.d.ts" />
+
+export default $config({
+  app(input) {
+    return {
+      name: "aws-rust-loco",
+      removal: input?.stage === "production" ? "retain" : "remove",
+      home: "aws",
+    };
+  },
+  async run() {
+    const vpc = new neo.aws.Vpc("LocoVpc", {
+      bastion: true,
+    });
+
+    const database = new neo.aws.Postgres("LocoDatabase", { vpc });
+
+    const redis = new neo.aws.Redis("LocoRedis", { vpc });
+
+    const DATABASE_URL = $interpolate`postgres://${
+      database.username
+    }:${database.password.apply(encodeURIComponent)}@${database.host}:${
+      database.port
+    }/${database.database}`;
+    const REDIS_URL = $interpolate`redis://${
+      redis.username
+    }:${redis.password.apply(encodeURIComponent)}@${redis.host}:${redis.port}`;
+
+    const locoCluster = new neo.aws.Cluster("LocoCluster", { vpc });
+
+    // external facing http service
+    const locoServer = new neo.aws.Service("LocoApp", {
+      cluster: locoCluster,
+      architecture: "x86_64",
+      scaling: { min: 2, max: 4 },
+      command: ["start"],
+      loadBalancer: {
+        ports: [{ listen: "80/http", forward: "5150/http" }],
+      },
+      environment: {
+        DATABASE_URL,
+        REDIS_URL,
+      },
+      link: [database, redis],
+      dev: {
+        command: "cargo loco start",
+      },
+    });
+
+    // add a worker that uses redis to process jobs off a queue
+    new neo.aws.Service("LocoWorker", {
+      cluster: locoCluster,
+      architecture: "x86_64",
+      command: ["start", "--worker"],
+      environment: {
+        DATABASE_URL,
+        REDIS_URL,
+      },
+      link: [database, redis],
+    });
+  },
+});

@@ -1,0 +1,7 @@
+
+# neo
+.neo
+
+.envrc
+shell.nix
+pnpm-*
