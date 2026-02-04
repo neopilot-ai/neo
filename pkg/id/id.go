@@ -8,15 +8,15 @@ import (
 
 const LENGTH = 24
 
-func Ascending() string {
+func Ascending() (string, error) {
 	return generateID(false)
 }
 
-func Descending() string {
+func Descending() (string, error) {
 	return generateID(true)
 }
 
-func generateID(descending bool) string {
+func generateID(descending bool) (string, error) {
 	now := time.Now().UnixMilli()
 	if descending {
 		now = ^now
@@ -30,12 +30,12 @@ func generateID(descending bool) string {
 	randomBytes := make([]byte, (LENGTH-12)/2)
 	_, err := rand.Read(randomBytes)
 	if err != nil {
-		panic(err)
+		return "", err
 	}
 
 	result := make([]byte, LENGTH)
 	hex.Encode(result[:12], timeBytes)
 	hex.Encode(result[12:], randomBytes)
 
-	return string(result)
+	return string(result), nil
 }

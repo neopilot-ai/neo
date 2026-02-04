@@ -56,10 +56,13 @@ func (p *Project) RunNext(ctx context.Context, input *StackInput) error {
 		Version: p.Version(),
 	})
 
-	update := &provider.Update{
-		ID: id.Descending(),
+	updateID, err := id.Descending()
+	if err != nil {
+		return nil, fmt.Errorf("failed to generate update ID: %w", err)
 	}
-	var err error
+	update := &provider.Update{
+		ID: updateID,
+	}
 	if input.Command != "diff" {
 		update, err = p.Lock(input.Command)
 		if err != nil {

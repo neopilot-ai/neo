@@ -17,7 +17,11 @@ func (p *Project) GetCompleted(ctx context.Context) (*CompleteEvent, error) {
 	if err != nil {
 		return nil, err
 	}
-	workdir, err := p.NewWorkdir(id.Descending())
+	workdirID, err := id.Descending()
+	if err != nil {
+		return nil, fmt.Errorf("failed to generate workdir ID: %w", err)
+	}
+	workdir, err := p.NewWorkdir(workdirID)
 	if err != nil {
 		return nil, err
 	}

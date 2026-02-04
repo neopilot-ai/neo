@@ -259,7 +259,7 @@ func (p *Project) generateProviderLock() error {
 
 func FindProvider(name string, version string) (*ProviderLockEntry, error) {
 	for _, prefix := range []string{"@neo-provider/", "@pulumi/", "@pulumiverse/", "pulumi-", "@", ""} {
-		pkg, err := npm.Get(prefix+name, version)
+		pkg, err := npm.CachedGet(prefix+name, version)
 		if err != nil {
 			continue
 		}

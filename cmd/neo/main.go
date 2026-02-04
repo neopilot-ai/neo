@@ -29,66 +29,104 @@ import (
 var version = "dev"
 
 func main() {
-	// check if node_modules/.bin/neo exists
-	nodeModulesBinPath := filepath.Join("node_modules", ".bin", "neo")
-	binary, _ := os.Executable()
-	if _, err := os.Stat(nodeModulesBinPath); err == nil && !strings.Contains(binary, "node_modules") && os.Getenv("NEO_SKIP_LOCAL") != "true" && version != "dev" {
-		// forward command to node_modules/.bin/neo
-		fmt.Println(ui.TEXT_WARNING_BOLD.Render("Warning: ") + "You are using a global installation of NEO but you also have a local installation specified in your package.json. The local installation will be used but you should typically run it through your package manager.")
-		cmd := process.Command(nodeModulesBinPath, os.Args[1:]...)
-		cmd.Stdout = os.Stdout
-		cmd.Stderr = os.Stderr
-		cmd.Stdin = os.Stdin
-		cmd.Env = os.Environ()
-		cmd.Env = append(cmd.Env, "NEO_SKIP_LOCAL=true")
-		if err := cmd.Run(); err != nil {
-			os.Exit(1)
-		}
+	if shouldForwardToLocal() {
+		forwardToLocal()
 		return
 	}
+	
+	setupTelemetry()
+	err := run()
+	handleError(err)
+}
+
+func shouldForwardToLocal() bool {
+	nodeModulesBinPath := filepath.Join("node_modules", ".bin", "neo")
+	binary, _ := os.Executable()
+	_, err := os.Stat(nodeModulesBinPath)
+	return err == nil && !strings.Contains(binary, "node_modules") && os.Getenv("NEO_SKIP_LOCAL") != "true" && version != "dev"
+}
+
+func forwardToLocal() {
+	nodeModulesBinPath := filepath.Join("node_modules", ".bin", "neo")
+	fmt.Println(ui.TEXT_WARNING_BOLD.Render("Warning: ") + "You are using a global installation of NEO but you also have a local installation specified in your package.json. The local installation will be used but you should typically run it through your package manager.")
+	cmd := process.Command(nodeModulesBinPath, os.Args[1:]...)
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	cmd.Stdin = os.Stdin
+	cmd.Env = os.Environ()
+	cmd.Env = append(cmd.Env, "NEO_SKIP_LOCAL=true")
+	if err := cmd.Run(); err != nil {
+		os.Exit(1)
+	}
+}
+
+func setupTelemetry() {
 	telemetry.SetVersion(version)
 	defer telemetry.Close()
 	defer process.Cleanup()
 	telemetry.Track("cli.start", map[string]interface{}{
 		"args": os.Args[1:],
 	})
-	err := run()
-	if err != nil {
-		err := errors.Transform(err)
-		errorMessage := err.Error()
-		truncated := errorMessage
-		if len(errorMessage) > 255 {
-			truncated = errorMessage[:255]
-		}
-		telemetry.Track("cli.error", map[string]interface{}{
-			"error": truncated,
-		})
-		if readableErr, ok := err.(*util.ReadableError); ok {
-			slog.Error("exited with error", "err", readableErr.Unwrap())
-			msg := readableErr.Error()
-			if msg != "" {
-				ui.Error(readableErr.Error())
-				if readableErr.IsHinted() {
-					fmt.Println("   " + ui.TEXT_DIM.Render(readableErr.Unwrap().Error()))
-				}
-			}
-		} else {
-			slog.Error("exited with error", "err", err)
-			// check if context cancelled error
-			if err != context.Canceled {
-				ui.Error("Unexpected error occurred. Please run with --print-logs or check .neo/log/neo.log if available.")
-			}
-		}
-		telemetry.Close()
-		os.Exit(1)
+}
+
+func handleError(err error) {
+	if err == nil {
+		telemetry.Track("cli.success", map[string]interface{}{})
 		return
 	}
-	telemetry.Track("cli.success", map[string]interface{}{})
+	
+	err = errors.Transform(err)
+	errorMessage := err.Error()
+	truncated := errorMessage
+	if len(errorMessage) > 255 {
+		truncated = errorMessage[:255]
+	}
+	telemetry.Track("cli.error", map[string]interface{}{
+		"error": truncated,
+	})
+	
+	if readableErr, ok := err.(*util.ReadableError); ok {
+		slog.Error("exited with error", "err", readableErr.Unwrap())
+		msg := readableErr.Error()
+		if msg != "" {
+			ui.Error(readableErr.Error())
+			if readableErr.IsHinted() {
+				fmt.Println("   " + ui.TEXT_DIM.Render(readableErr.Unwrap().Error()))
+			}
+		}
+	} else {
+		slog.Error("exited with error", "err", err)
+		if err != context.Canceled {
+			ui.Error("Unexpected error occurred. Please run with --print-logs or check .neo/log/neo.log if available.")
+		}
+	}
+	telemetry.Close()
+	os.Exit(1)
 }
 
 func run() error {
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
+	
+	setupSignalHandling(cancel)
+	
+	c, err := cli.New(ctx, cancel, root, version)
+	if err != nil {
+		return err
+	}
+	
+	if err := validateUser(); err != nil {
+		return err
+	}
+
+	if err := installDependencies(ctx); err != nil {
+		return err
+	}
+	
+	return c.Run()
+}
+
+func setupSignalHandling(cancel context.CancelFunc) {
 	interruptChannel := make(chan os.Signal, 1)
 	signal.Notify(interruptChannel, syscall.SIGINT, syscall.SIGTERM)
 	go func() {
@@ -96,39 +134,41 @@ func run() error {
 		slog.Info("interrupted")
 		cancel()
 	}()
-	c, err := cli.New(ctx, cancel, root, version)
-	if err != nil {
-		return err
-	}
-	_, err = user.Current()
-	if err != nil {
-		return err
-	}
+}
 
-	if !flag.NEO_SKIP_DEPENDENCY_CHECK {
-		spin := spinner.New(spinner.CharSets[14], 100*time.Millisecond)
-		spin.Suffix = "  Download dependencies..."
-		if global.NeedsPulumi() {
-			spin.Suffix = "  Installing pulumi..."
-			spin.Start()
-			err := global.InstallPulumi(ctx)
-			if err != nil {
-				spin.Stop()
-				return util.NewHintedError(err, "Could not install pulumi")
-			}
-		}
-		if global.NeedsBun() {
-			spin.Suffix = "  Installing bun..."
-			spin.Start()
-			err := global.InstallBun(ctx)
-			if err != nil {
-				spin.Stop()
-				return util.NewHintedError(err, "Could not install bun")
-			}
-		}
-		spin.Stop()
+func validateUser() error {
+	_, err := user.Current()
+	return err
+}
+
+func installDependencies(ctx context.Context) error {
+	if flag.NEO_SKIP_DEPENDENCY_CHECK {
+		return nil
 	}
-	return c.Run()
+	
+	spin := spinner.New(spinner.CharSets[14], 100*time.Millisecond)
+	spin.Suffix = "  Download dependencies..."
+	
+	if global.NeedsPulumi() {
+		spin.Suffix = "  Installing pulumi..."
+		spin.Start()
+		if err := global.InstallPulumi(ctx); err != nil {
+			spin.Stop()
+			return util.NewHintedError(err, "Could not install pulumi")
+		}
+	}
+	
+	if global.NeedsBun() {
+		spin.Suffix = "  Installing bun..."
+		spin.Start()
+		if err := global.InstallBun(ctx); err != nil {
+			spin.Stop()
+			return util.NewHintedError(err, "Could not install bun")
+		}
+	}
+	
+	spin.Stop()
+	return nil
 }
 
 var root = &cli.Command{

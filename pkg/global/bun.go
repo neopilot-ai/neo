@@ -132,7 +132,11 @@ func InstallBun(ctx context.Context) error {
 				}
 				defer f.Close()
 
-				tmpFile := filepath.Join(BinPath(), id.Ascending())
+				tmpID, err := id.Ascending()
+				if err != nil {
+					return nil, fmt.Errorf("failed to generate temp file name: %w", err)
+				}
+				tmpFile := filepath.Join(BinPath(), tmpID)
 				outFile, err := os.Create(tmpFile)
 				if err != nil {
 					return nil, err

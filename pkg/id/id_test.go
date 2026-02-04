@@ -7,10 +7,14 @@ import (
 	"github.com/neopilot-ai/neo/pkg/id"
 )
 
-func run(t *testing.T, genFunc func() string, compareFunc func(string, string) bool, order string) {
+func run(t *testing.T, genFunc func() (string, error), compareFunc func(string, string) bool, order string) {
 	ids := make([]string, 100)
 	for i := 0; i < 100; i++ {
-		ids[i] = genFunc()
+		id, err := genFunc()
+		if err != nil {
+			t.Fatalf("Failed to generate ID at index %d: %v", i, err)
+		}
+		ids[i] = id
 		time.Sleep(time.Millisecond)
 	}
 

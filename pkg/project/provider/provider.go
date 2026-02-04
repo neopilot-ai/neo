@@ -244,7 +244,10 @@ type lockData struct {
 }
 
 func Lock(backend Home, version, command, app, stage string) (*Update, error) {
-	updateID := id.Descending()
+	updateID, err := id.Descending()
+	if err != nil {
+		return nil, fmt.Errorf("failed to generate update ID: %w", err)
+	}
 	slog.Info("locking", "app", app, "stage", stage)
 	var lockData lockData
 	err := getData(backend, "lock", app, stage, false, &lockData)

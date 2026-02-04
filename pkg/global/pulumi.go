@@ -77,7 +77,11 @@ func InstallPulumi(ctx context.Context) error {
 			return nil, fmt.Errorf("failed to download pulumi: HTTP status %d", resp.StatusCode)
 		}
 
-		tmp := filepath.Join(BinPath(), id.Ascending())
+		tmpID, err := id.Ascending()
+		if err != nil {
+			return nil, fmt.Errorf("failed to generate temp directory name: %w", err)
+		}
+		tmp := filepath.Join(BinPath(), tmpID)
 		err = os.MkdirAll(tmp, 0755)
 		if err != nil {
 			return nil, err
