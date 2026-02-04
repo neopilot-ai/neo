@@ -74,9 +74,13 @@ type PingBody struct {
 type RebootBody struct {
 }
 
-func newWriter(conn *appsync.Connection, source string, channel string, message MessageType) *Writer {
+func newWriter(conn *appsync.Connection, source string, channel string, message MessageType) (*Writer, error) {
+	id, err := id.Ascending()
+	if err != nil {
+		return nil, err
+	}
 	return &Writer{
-		id:       id.Ascending(),
+		id:       id,
 		conn:     conn,
 		source:   source,
 		message:  message,
@@ -84,7 +88,7 @@ func newWriter(conn *appsync.Connection, source string, channel string, message 
 		buffer:   make([]byte, BUFFER_SIZE),
 		position: 0,
 		index:    0,
-	}
+	}, nil
 }
 
 func (w *Writer) SetID(id string) {
@@ -187,9 +191,8 @@ func (c *Client) Read() <-chan Message {
 	return c.out
 }
 
-func (c *Client) NewWriter(message MessageType, destination string) *Writer {
-	writer := newWriter(c.as, c.source, destination, message)
-	return writer
+func (c *Client) NewWriter(message MessageType, destination string) (*Writer, error) {
+	return newWriter(c.as, c.source, destination, message)
 }
 
 type ChannelReader struct {

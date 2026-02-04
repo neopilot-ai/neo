@@ -1,16 +1,13 @@
 package npm
 
 import (
-	"encoding/json"
 	"fmt"
 	"log/slog"
-	"net/http"
 	"os"
 	"path/filepath"
 	"sync"
 	"time"
 
-	"github.com/neopilot-ai/neo/internal/fs"
 	"github.com/neopilot-ai/neo/pkg/cache"
 )
 

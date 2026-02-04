@@ -120,7 +120,12 @@ func function(ctx context.Context, input input) {
 	input.server.Mux.HandleFunc(`/lambda/{workerID}/2018-06-01/runtime/init/error`, func(w http.ResponseWriter, r *http.Request) {
 		workerID := r.PathValue("workerID")
 		log.Info("got init error", "workerID", workerID, "requestID", r.PathValue("requestID"))
-		writer := input.client.NewWriter(bridge.MessageInitError, input.prefix+"/"+workerID+"/in")
+		writer, err := input.client.NewWriter(bridge.MessageInitError, input.prefix+"/"+workerID+"/in")
+		if err != nil {
+			log.Error("failed to create writer", "error", err)
+			w.WriteHeader(500)
+			return
+		}
 		var buf bytes.Buffer
 		tee := io.TeeReader(r.Body, &buf)
 		io.Copy(writer, tee)
@@ -141,7 +146,12 @@ func function(ctx context.Context, input input) {
 		workerID := r.PathValue("workerID")
 		requestID := r.PathValue("requestID")
 		log.Info("got response", "workerID", workerID, "requestID", r.PathValue("requestID"))
-		writer := input.client.NewWriter(bridge.MessageResponse, input.prefix+"/"+workerID+"/in")
+		writer, err := input.client.NewWriter(bridge.MessageResponse, input.prefix+"/"+workerID+"/in")
+		if err != nil {
+			log.Error("failed to create writer", "error", err)
+			w.WriteHeader(500)
+			return
+		}
 		writer.SetID(requestID)
 		var buf bytes.Buffer
 		tee := io.TeeReader(r.Body, &buf)
@@ -163,7 +173,12 @@ func function(ctx context.Context, input input) {
 		workerID := r.PathValue("workerID")
 		requestID := r.PathValue("requestID")
 		log.Info("got error", "workerID", workerID, "requestID", r.PathValue("requestID"))
-		writer := input.client.NewWriter(bridge.MessageError, input.prefix+"/"+workerID+"/in")
+		writer, err := input.client.NewWriter(bridge.MessageError, input.prefix+"/"+workerID+"/in")
+		if err != nil {
+			log.Error("failed to create writer", "error", err)
+			w.WriteHeader(500)
+			return
+		}
 		writer.SetID(requestID)
 		var buf bytes.Buffer
 		tee := io.TeeReader(r.Body, &buf)
@@ -314,7 +329,11 @@ func function(ctx context.Context, input input) {
 					}
 				}
 			case bridge.MessageNext:
-				writer := input.client.NewWriter(bridge.MessagePing, input.prefix+"/"+msg.Source+"/in")
+				writer, err := input.client.NewWriter(bridge.MessagePing, input.prefix+"/"+msg.Source+"/in")
+				if err != nil {
+					log.Error("failed to create writer", "error", err)
+					continue
+				}
 				json.NewEncoder(writer).Encode(bridge.PingBody{})
 				writer.Close()
 				ch, ok := nextChan[msg.Source]
@@ -325,7 +344,11 @@ func function(ctx context.Context, input input) {
 				_, ok = workers[msg.Source]
 				if !ok {
 					log.Info("asking for reboot", "workerID", msg.Source)
-					writer := input.client.NewWriter(bridge.MessageReboot, input.prefix+"/"+msg.Source+"/in")
+					writer, err := input.client.NewWriter(bridge.MessageReboot, input.prefix+"/"+msg.Source+"/in")
+				if err != nil {
+					log.Error("failed to create writer", "error", err)
+					continue
+				}
 					json.NewEncoder(writer).Encode(bridge.RebootBody{})
 					writer.Close()
 				}

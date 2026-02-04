@@ -253,14 +253,17 @@ func (c *Connection) connect(ctx context.Context) error {
 
 func (c *Connection) Subscribe(ctx context.Context, channel string) (chan string, error) {
 	out := make(chan string, 1000)
-	subscriptionID := id.Ascending()
+	subscriptionID, err := id.Ascending()
+	if err != nil {
+		return nil, err
+	}
 	c.subscriptions[subscriptionID] = SubscriptionInfo{
 		Channel: channel,
 		Out:     out,
 	}
-	err := c.subscribe(ctx, channel, subscriptionID)
-	if err != nil {
-		return nil, err
+	subscribeErr := c.subscribe(ctx, channel, subscriptionID)
+	if subscribeErr != nil {
+		return nil, subscribeErr
 	}
 	return out, nil
 }

@@ -250,7 +250,7 @@ func Lock(backend Home, version, command, app, stage string) (*Update, error) {
 	}
 	slog.Info("locking", "app", app, "stage", stage)
 	var lockData lockData
-	err := getData(backend, "lock", app, stage, false, &lockData)
+	err = getData(backend, "lock", app, stage, false, &lockData)
 	if err != nil {
 		return nil, err
 	}

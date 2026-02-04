@@ -441,7 +441,7 @@ var root = &cli.Command{
 					"    started in a separate tab.",
 					"  - `Postgres`, `Aurora`, and `Redis` link to a local database if the `dev` prop is",
 					"    set.",
-					"- Start an [`neo tunnel`](#tunnel) session in a new tab if your app has a `Vpc`"",
+					"- Start an [`neo tunnel`](#tunnel) session in a new tab if your app has a `Vpc`" +
 					"  with `bastion` enabled.",
 					"- Load any [linked resources](/docs/linking) in the environment.",
 					"- Start a watcher for your `neo.config.ts` and redeploy any changes.",

@@ -171,12 +171,20 @@ func task(ctx context.Context, input input) {
 						done <- struct{}{}
 					}()
 					for {
-						writer := input.client.NewWriter(bridge.MessagePing, input.prefix+"/"+msg.Source+"/in")
+						writer, err := input.client.NewWriter(bridge.MessagePing, input.prefix+"/"+msg.Source+"/in")
+					if err != nil {
+						log.Error("failed to create writer", "error", err)
+						continue
+					}
 						json.NewEncoder(writer).Encode(bridge.PingBody{})
 						writer.Close()
 						select {
 						case <-done:
-							writer := input.client.NewWriter(bridge.MessageTaskComplete, input.prefix+"/"+msg.Source+"/in")
+							writer, err := input.client.NewWriter(bridge.MessageTaskComplete, input.prefix+"/"+msg.Source+"/in")
+					if err != nil {
+						log.Error("failed to create writer", "error", err)
+						continue
+					}
 							json.NewEncoder(writer).Encode(bridge.TaskCompleteBody{})
 							writer.Close()
 							bus.Publish(&TaskCompleteEvent{

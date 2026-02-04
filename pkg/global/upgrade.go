@@ -96,7 +96,7 @@ func Upgrade(existingVersion string, nextVersion string) (string, error) {
 	}
 	defer body.Close()
 
-	if err := untar(body, neoBinPath); err != nil {
+	if err := untar(body, sstBinPath); err != nil {
 		return "", err
 	}
 

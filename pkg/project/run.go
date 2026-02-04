@@ -58,7 +58,7 @@ func (p *Project) RunNext(ctx context.Context, input *StackInput) error {
 
 	updateID, err := id.Descending()
 	if err != nil {
-		return nil, fmt.Errorf("failed to generate update ID: %w", err)
+		return fmt.Errorf("failed to generate update ID: %w", err)
 	}
 	update := &provider.Update{
 		ID: updateID,

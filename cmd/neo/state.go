@@ -109,7 +109,11 @@ var CmdState = &cli.Command{
 					return err
 				}
 				defer p.Cleanup()
-				workdir, err := p.NewWorkdir(id.Descending())
+				workdirID, err := id.Descending()
+				if err != nil {
+					return err
+				}
+				workdir, err := p.NewWorkdir(workdirID)
 				if err != nil {
 					return err
 				}
