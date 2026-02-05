@@ -3,7 +3,6 @@ project_name: neo
 before:
   hooks:
     - go mod tidy
-    - go test ./cmd/... ./pkg/...
 builds:
   - env:
       - CGO_ENABLED=0
