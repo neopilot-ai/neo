@@ -3,7 +3,7 @@ name = "functions"
 version = "0.1.0"
 description = "A NEO app"
 authors = [{ name = "Nick Wall", email = "mail@walln.dev" }]
-dependencies = ["transformers>=4.44.2", "torch==2.8.0"]
+dependencies = ["transformers>=4.44.2", "torch==2.10.0"]
 
 # It is recommended to specify your python version to match your Lambda runtime otherwise you may
 # encounter issues with dependencies.
