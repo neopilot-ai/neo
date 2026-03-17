@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "mqtt": "^5.10.1",
-    "next": "16.1.5",
+    "next": "16.1.7",
     "react": "^18",
     "react-dom": "^18",
     "neo": "latest"
