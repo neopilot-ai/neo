@@ -9,7 +9,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "next": "16.1.5",
+    "next": "16.2.6",
     "react": "19.0.0-rc-69d4b800-20241021",
     "react-dom": "19.0.0-rc-69d4b800-20241021",
     "neo": "latest"
